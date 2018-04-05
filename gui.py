@@ -1,21 +1,26 @@
 from Tkinter import *
 from ttk import *
 
+objectLst = [i for i in range(10)]
+patternLst = ['Normal', 'Fade', 'Gradual', 'Flashing']
+
 
 class NotebookDemo(Frame):
 
-    def __init__(self, isapp=True, name='notebookdemo'):
+    def __init__(self, isapp=True, name='sequencer'):
         Frame.__init__(self, name=name)
         self.pack(expand=Y, fill=BOTH)
-        self.master.title('Notebook Demo')
+        self.master.title('Advanced Sequencer')
+        self.master.geometry('500x300')
         self.isapp = isapp
+        self.pSpinArray = []
         self._create_widgets()
 
     def _create_widgets(self):
-        self._create_demo_panel()
+        self._create_main_panel()
 
-    def _create_demo_panel(self):
-        demoPanel = Frame(self, name='demo')
+    def _create_main_panel(self):
+        demoPanel = Frame(self, name='main')
         demoPanel.pack(side=TOP, fill=BOTH, expand=Y)
 
         # create the notebook
@@ -32,6 +37,7 @@ class NotebookDemo(Frame):
         self._create_disabled_tab(nb)
         self._create_text_tab(nb)
         self.createPacketTab(nb)
+        self.createSequenceTab(nb)
 
     def _create_descrip_tab(self, nb):
         # frame to hold contentx
@@ -97,10 +103,108 @@ class NotebookDemo(Frame):
 
     # =============================================================================
     def createPacketTab(self, nb):
+        # Populate the packet frame
         packetFrame = Frame(nb)
 
-        # add to notebook
-        nb.add(packetFrame, text='Packets')
+        comboContainer = Labelframe(packetFrame)
+        comboContainer.pack(pady=5, side=TOP, fill=X)
+        pLabel = Label(comboContainer, text="Packet:")
+        pLabel.pack(padx=5, side=LEFT)
+        pCombo = Combobox(comboContainer, state='readonly', values=objectLst)
+        pCombo.pack(side=LEFT)
+
+        numContainer = Labelframe(packetFrame, height=100, text='Packet values:')
+        numContainer.pack(side=TOP, fill=X)
+        for col in range(10):
+            self.pSpinArray.append(Spinbox(numContainer, from_=0, to=9, wrap=TRUE, width=3))
+            self.pSpinArray[col].grid(row=0, column=col, padx=5, pady=50)
+        numContainer.rowconfigure(0, weight=1)
+        for obj in objectLst:
+            numContainer.columnconfigure(obj, weight=1, uniform=1)
+
+        butContainer = Labelframe(packetFrame)
+        butContainer.pack(side=TOP, fill=BOTH)
+        saveB = Button(butContainer, text='Save')
+        saveB.grid(row=0, column=0, padx=20, pady=10)
+        outSingle = Button(butContainer, text='Save and output')
+        outSingle.grid(row=0, column=1, padx=20, pady=10)
+        outLoop = Button(butContainer, text='Save and loop')
+        outLoop.grid(row=0, column=2, padx=20, pady=10)
+        butContainer.rowconfigure(0, weight=1)
+        butContainer.columnconfigure((0, 1, 2), weight=1, uniform=1)
+
+        # Add to notebook
+        nb.add(packetFrame, text='Packets', padding=2)
+
+    # =============================================================================
+    def createSequenceTab(self, nb):
+        # Populate the sequence frame
+        sequenceFrame = Frame(nb)
+        self.createSeqContainer(sequenceFrame)
+
+        self.createExtraSectionContainer(sequenceFrame)
+
+        self.createButtonContainer(sequenceFrame)
+
+        nb.add(sequenceFrame, text='Sequences', padding=2)
+
+    def createSeqContainer(self, tab):
+        sContainer = Labelframe(tab)
+        sContainer.pack(fill=X, side=TOP)
+        sLabel = Label(sContainer, text='Sequence:')
+        sLabel.grid(row=0, column=0, padx=5)
+        sCombo = Combobox(sContainer, state='readonly', values=objectLst)
+        sCombo.grid(row=0, column=1)
+
+        repLabel = Label(sContainer, text='Repeats:')
+        repLabel.grid(row=1, column=0, padx=5, pady=5)
+        repEntry = Entry(sContainer, width=3)  # Needs to have validation for numeric entry
+        repEntry.grid(row=1, column=1, pady=5)
+        patLabel = Label(sContainer, text='Pattern:')
+        patLabel.grid(row=2, column=0, padx=5)
+        patCombo = Combobox(sContainer, state='readonly', values=patternLst)
+        patCombo.grid(row=2, column=1)
+        clearB = Button(sContainer, text='Clear All')
+        clearB.grid(row=2, column=2, padx=75)
+
+    def createExtraSectionContainer(self, tab):
+        currentRows = []
+
+        headerContainer = Labelframe(tab)
+        headerContainer.pack(fill=X, side=TOP)
+        startHeaderLbl = Label(headerContainer, text='Section Start')
+        startHeaderLbl.grid(row=0, column=0, padx=5)
+        endHeaderLbl = Label(headerContainer, text='Section End')
+        endHeaderLbl.grid(row=0, column=1, padx=5)
+        repHeaderLbl = Label(headerContainer, text='Repeats')
+        repHeaderLbl.grid(row=0, column=2, padx=5)
+        patHeaderLbl = Label(headerContainer, text='Pattern')
+        patHeaderLbl.grid(row=0, column=3, padx=5)
+
+        self.blankSection(headerContainer, currentRows)
+
+    def blankSection(self, container, rows):
+        startBox = Spinbox(container, from_=0, to=9, wrap=TRUE, width=3)
+        startBox.grid(row=len(rows)+1, column=0, padx=5)
+        endBox = Spinbox(container, from_=0, to=9, wrap=TRUE, width=3)
+        endBox.grid(row=len(rows)+1, column=1, padx=5)
+        repBox = Entry(container, width=3)
+        repBox.grid(row=len(rows)+1, column=2, padx=5)
+        patBox = Combobox(container, state='readonly', values=patternLst)
+        patBox.grid(row=len(rows)+1, column=3, padx=5)
+        addB = Button(container, text='Add')
+        addB.grid(row=len(rows)+1, column=4, padx=5)
+
+    def createButtonContainer(self, container):
+        butContainer = Labelframe(container)
+        butContainer.pack(fill=BOTH, side=TOP)
+
+        saveB = Button(butContainer, text='Save')
+        saveB.grid(row=0, column=0, padx=50, pady=10)
+        outputB = Button(butContainer, text='Save and Output')
+        outputB.grid(row=0, column=1, padx=50, pady=10)
+    # def addNewSection(self):
+
 
 
 if __name__ == '__main__':

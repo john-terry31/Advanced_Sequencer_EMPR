@@ -3,6 +3,7 @@ from Tkinter import *
 import gui
 import sequencer
 
+objectNum = 10
 
 '''## Class defining packet objects ##
 class Packet(object):
