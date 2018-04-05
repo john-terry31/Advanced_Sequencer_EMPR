@@ -4,18 +4,20 @@ from ttk import *
 
 class NotebookDemo(Frame):
 
-    def __init__(self, isapp=True, name='notebookdemo'):
+    def __init__(self, isapp=True, name='sequencer'):
         Frame.__init__(self, name=name)
         self.pack(expand=Y, fill=BOTH)
-        self.master.title('Notebook Demo')
+        self.master.title('Advanced Sequencer')
+        self.master.geometry('500x300')
         self.isapp = isapp
+        self.pSpinArray = []
         self._create_widgets()
 
     def _create_widgets(self):
-        self._create_demo_panel()
+        self._create_main_panel()
 
-    def _create_demo_panel(self):
-        demoPanel = Frame(self, name='demo')
+    def _create_main_panel(self):
+        demoPanel = Frame(self, name='main')
         demoPanel.pack(side=TOP, fill=BOTH, expand=Y)
 
         # create the notebook
@@ -32,6 +34,7 @@ class NotebookDemo(Frame):
         self._create_disabled_tab(nb)
         self._create_text_tab(nb)
         self.createPacketTab(nb)
+        self.createSequenceTab(nb)
 
     def _create_descrip_tab(self, nb):
         # frame to hold contentx
@@ -97,10 +100,42 @@ class NotebookDemo(Frame):
 
     # =============================================================================
     def createPacketTab(self, nb):
+        # Populate the packet frame
         packetFrame = Frame(nb)
 
-        # add to notebook
-        nb.add(packetFrame, text='Packets')
+        comboContainer = Labelframe(packetFrame)
+        comboContainer.grid(row=0, column=0, sticky=W, pady=5)
+        pLabel = Label(comboContainer, text="Packet:")
+        pLabel.pack(padx=5,side=LEFT)
+        pCombo = Combobox(comboContainer, state='readonly', values=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'])
+        pCombo.pack()
+
+        numContainer = Labelframe(packetFrame, height=100, text='Packet values:')
+        numContainer.grid(row=1, column=0)
+        for col in range(10):
+            self.pSpinArray.append(Spinbox(numContainer, from_=0, to=9, wrap=TRUE, width=3))
+            self.pSpinArray[col].grid(row=0, column=col, padx=5, pady=50)
+
+        butContainer = Labelframe(packetFrame)
+        butContainer.grid(row=2, column=0)
+        saveB = Button(butContainer, text='Save')
+        saveB.grid(row=0, column=0, padx=20, pady=10)
+        outSingle = Button(butContainer, text='Save and output')
+        outSingle.grid(row=0, column=1, padx=20, pady=10)
+        outLoop = Button(butContainer, text='Save and loop')
+        outLoop.grid(row=0, column=2, padx=20, pady=10)
+
+        # Add to notebook
+        nb.add(packetFrame, text='Packets', padding=2)
+
+    # =============================================================================
+    def createSequenceTab(self, nb):
+        # Populate the sequence frame
+        sequenceFrame = Frame(nb)
+
+        # add stuff
+
+        nb.add(sequenceFrame, text='Sequences', padding=2)
 
 
 if __name__ == '__main__':
