@@ -3,7 +3,7 @@ import serial
 comList = ["sendSequence", "sendSequenceSimple", "saveSequence", "createPacket", "editPacket"]
 
 separator = "."
-mbed = serial.Serial('/dev/ttyACM0', 9600)
+# mbed = serial.Serial('/dev/ttyACM0', 9600)
 
 
 '''

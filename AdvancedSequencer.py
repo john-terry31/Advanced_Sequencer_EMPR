@@ -4,6 +4,19 @@ import gui
 import sequencer
 
 objectNum = 10
+maxPacketVal = 255
+packets = [
+    [1, 0, 0, 25, 0, 102, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+]
 
 '''## Class defining packet objects ##
 class Packet(object):
@@ -38,6 +51,6 @@ sequencer.startSequencer()
 
 
 root = Tk()
-app = gui.Window(root)
+app = gui.NotebookDemo(root)
 root.mainloop()
 

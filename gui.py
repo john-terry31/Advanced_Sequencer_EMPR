@@ -1,5 +1,6 @@
 from Tkinter import *
 from ttk import *
+import AdvancedSequencer as AdvSeq
 
 objectLst = [i for i in range(10)]
 patternLst = ['Normal', 'Fade', 'Gradual', 'Flashing']
@@ -14,6 +15,7 @@ class NotebookDemo(Frame):
         self.master.geometry('500x300')
         self.isapp = isapp
         self.pSpinArray = []
+        self.pComboValue = '0'
         self._create_widgets()
 
     def _create_widgets(self):
@@ -110,13 +112,15 @@ class NotebookDemo(Frame):
         comboContainer.pack(pady=5, side=TOP, fill=X)
         pLabel = Label(comboContainer, text="Packet:")
         pLabel.pack(padx=5, side=LEFT)
-        pCombo = Combobox(comboContainer, state='readonly', values=objectLst)
-        pCombo.pack(side=LEFT)
+        pVar = StringVar()
+        self.pCombo = Combobox(comboContainer, state='readonly', values=objectLst, textvariable=pVar)
+        self.pCombo.pack(side=LEFT)
+        self.pCombo.bind('<<ComboboxSelected>>', lambda e, p=pVar: self.comboCallback(p))
 
         numContainer = Labelframe(packetFrame, height=100, text='Packet values:')
         numContainer.pack(side=TOP, fill=X)
-        for col in range(10):
-            self.pSpinArray.append(Spinbox(numContainer, from_=0, to=9, wrap=TRUE, width=3))
+        for col in objectLst:
+            self.pSpinArray.append(Spinbox(numContainer, from_=0, to=AdvSeq.maxPacketVal, wrap=TRUE, width=3))
             self.pSpinArray[col].grid(row=0, column=col, padx=5, pady=50)
         numContainer.rowconfigure(0, weight=1)
         for obj in objectLst:
@@ -135,6 +139,13 @@ class NotebookDemo(Frame):
 
         # Add to notebook
         nb.add(packetFrame, text='Packets', padding=2)
+
+    def comboCallback(self, combo):
+        self.pComboValue = self.pCombo.get()
+        if not self.pCombo.get() == '':
+            for obj in objectLst:
+                self.pSpinArray[obj].delete(0, 3)
+                self.pSpinArray[obj].insert(0, AdvSeq.packets[int(self.pComboValue)][obj])
 
     # =============================================================================
     def createSequenceTab(self, nb):
@@ -158,8 +169,8 @@ class NotebookDemo(Frame):
 
         repLabel = Label(sContainer, text='Repeats:')
         repLabel.grid(row=1, column=0, padx=5, pady=5)
-        repEntry = Entry(sContainer, width=3)  # Needs to have validation for numeric entry
-        repEntry.grid(row=1, column=1, pady=5)
+        repInput= Spinbox(sContainer, from_=0, to=9, wrap=TRUE, width=3)  # Needs to have validation for numeric entry
+        repInput.grid(row=1, column=1, pady=5)
         patLabel = Label(sContainer, text='Pattern:')
         patLabel.grid(row=2, column=0, padx=5)
         patCombo = Combobox(sContainer, state='readonly', values=patternLst)
@@ -188,7 +199,7 @@ class NotebookDemo(Frame):
         startBox.grid(row=len(rows)+1, column=0, padx=5)
         endBox = Spinbox(container, from_=0, to=9, wrap=TRUE, width=3)
         endBox.grid(row=len(rows)+1, column=1, padx=5)
-        repBox = Entry(container, width=3)
+        repBox = Spinbox(container, from_=0, to=9, wrap=TRUE, width=3)
         repBox.grid(row=len(rows)+1, column=2, padx=5)
         patBox = Combobox(container, state='readonly', values=patternLst)
         patBox.grid(row=len(rows)+1, column=3, padx=5)
