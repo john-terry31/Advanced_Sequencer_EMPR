@@ -31,10 +31,10 @@ class NotebookDemo(Frame):
         self.sLabel = None
         self.sCombo = None
         self.sSpinContainer = None
-        self.repLabel = None
-        self.repInput = None
-        self.patLabel = None
-        self.patCombo = None
+        self.sRepLabel = None
+        self.sRepInput = None
+        self.sPatLabel = None
+        self.sPatCombo = None
         self.clearB = None
 
         self._create_widgets()
@@ -136,7 +136,7 @@ class NotebookDemo(Frame):
         pVar = StringVar()
         self.pCombo = Combobox(comboContainer, state='readonly', values=_objectLst, textvariable=pVar)
         self.pCombo.pack(side=LEFT)
-        self.pCombo.bind('<<ComboboxSelected>>', lambda e, p=pVar: self.comboCallback(p))
+        self.pCombo.bind('<<ComboboxSelected>>', lambda e, p=pVar: self.pComboCallback(p))
 
         numContainer = Labelframe(packetFrame, height=100, text='Packet values:')
         numContainer.pack(side=TOP, fill=X)
@@ -161,12 +161,11 @@ class NotebookDemo(Frame):
         # Add to notebook
         nb.add(packetFrame, text='Packets', padding=2)
 
-    def comboCallback(self, combo):
-        self.pComboValue = self.pCombo.get()
-        if not self.pCombo.get() == '':
+    def pComboCallback(self, combo):
+        if not self.getCurPacket() == '':
             for obj in _objectLst:
                 self.pSpinArray[obj].delete(0, 3)
-                self.pSpinArray[obj].insert(0, AdvSeq.packets[int(self.pComboValue)][obj])
+                self.pSpinArray[obj].insert(0, AdvSeq.packets[int(self.getCurPacket())][obj])
 
     def getCurPacket(self):
         return self.pCombo.get()
@@ -205,31 +204,55 @@ class NotebookDemo(Frame):
         self.sContainer.pack(fill=X, side=TOP)
         self.sLabel = Label(self.sContainer, text='Sequence:')
         self.sLabel.grid(row=0, column=0)
-        self.sCombo = Combobox(self.sContainer, state='readonly', values=_objectLst)
+        sVar = StringVar
+        self.sCombo = Combobox(self.sContainer, state='readonly', values=_objectLst, textvariable=sVar)
         self.sCombo.grid(row=0, column=1, padx=10)
+        self.sCombo.bind('<<ComboboxSelected>>', lambda e, s=sVar: self.sComboCallback(s))
         # Add sequence spinbox
         self.sSpinContainer = Labelframe(self.sContainer)
         self.sSpinContainer.grid(row=0, column=2, columnspan=10)
-        for col in range(_packetLength):
+        for col in range(_sequenceLength):
             self.sSpinArray.append(Spinbox(self.sSpinContainer, from_=0, to=len(_objectLst), wrap=TRUE, width=3))
             self.sSpinArray[col].pack(side=LEFT)
-        for col in range(_packetLength+2):
+        for col in range(_sequenceLength+2):
             if col <= 2:
                 self.sContainer.columnconfigure(col, weight=2, uniform=1)
             else:
                 self.sContainer.columnconfigure(col, weight=1, uniform=1)
 
-        self.repLabel = Label(self.sContainer, text='Repeats:')
-        self.repLabel.grid(row=1, column=0, padx=5, pady=5)
-        self.repInput = Spinbox(self.sContainer, from_=0, to=_maxSeqRepeats, wrap=TRUE,
+        self.sRepLabel = Label(self.sContainer, text='Repeats:')
+        self.sRepLabel.grid(row=1, column=0, padx=5, pady=5)
+        self.sRepInput = Spinbox(self.sContainer, from_=0, to=_maxSeqRepeats, wrap=TRUE,
                                 width=3)    # #################### Needs to have validation for numeric entry
-        self.repInput.grid(row=1, column=1, pady=5)
-        self.patLabel = Label(self.sContainer, text='Pattern:')
-        self.patLabel.grid(row=2, column=0, padx=5)
-        self.patCombo = Combobox(self.sContainer, state='readonly', values=_patternLst)
-        self.patCombo.grid(row=2, column=1)
-        self.clearB = Button(self.sContainer, text='Clear All')
+        self.sRepInput.grid(row=1, column=1, pady=5)
+        self.sPatLabel = Label(self.sContainer, text='Pattern:')
+        self.sPatLabel.grid(row=2, column=0, padx=5)
+        self.sPatCombo = Combobox(self.sContainer, state='readonly', values=_patternLst)
+        self.sPatCombo.grid(row=2, column=1)
+        self.clearB = Button(self.sContainer, text='Clear All', command=self.clearAllButton)
         self.clearB.grid(row=2, column=2, padx=75, columnspan=6)
+
+    def clearAllButton(self):
+        if self.getCurSequence() != '':
+            for obj in range(_sequenceLength):
+                self.sSpinArray[obj].delete(0, 3)
+                self.sSpinArray[obj].insert(0, 0)
+            self.sCombo.set('')
+            self.sRepInput.delete(0, 3)
+            self.sRepInput.insert(0, 0)
+            self.sPatCombo.set('')
+
+    def sComboCallback(self, combo):
+        if self.getCurSequence() != '':
+            for obj in range(_sequenceLength):
+                self.sSpinArray[obj].delete(0, 3)
+                self.sSpinArray[obj].insert(0, AdvSeq.sequences[int(self.getCurSequence())][1][obj])
+            self.sRepInput.delete(0, 3)
+            self.sRepInput.insert(0, AdvSeq.sequences[int(self.getCurSequence())][0][1])
+            self.sPatCombo.set(_patternLst[AdvSeq.sequences[int(self.getCurSequence())][0][0]])
+
+    def getCurSequence(self):
+        return self.sCombo.get()
 
     def createExtraSectionContainer(self, tab):
         currentRows = []
