@@ -1,6 +1,6 @@
 import serial
 
-comList = ["sendSequence", "sendSequenceSimple", "saveSequence", "createPacket", "editPacket"]
+comList = ["sendSequence", "sendSequenceSimple", "saveSequence", "savePacket", "editPacket"]
 
 separator = "."
 # mbed = serial.Serial('/dev/ttyACM0', 9600)
@@ -121,7 +121,25 @@ def commandHelp(com):
     globals()[helpCommand]()
 
 
-def editPacket(packetNo, newValues):
+def sendPacket(packetNo, newValues):
+    """
+    Edit individual packets. Up to 10 slots per, for simplicity.
+    Use '-' for leave unedited maybe?
+    :param packetNo:
+    :param newValues:
+    :return:
+    """
+
+    # Get packet
+    # Display current packet to user
+
+    packetStr = str(packetNo) + str(newValues)
+    return packetStr
+
+    # Needs to get packet first??
+
+
+def sendPacketLoop(packetNo, newValues):
     """
     Edit individual packets. Up to 10 slots per, for simplicity.
     Use '-' for leave unedited maybe?
@@ -153,7 +171,7 @@ def editPacketHelp():
           "newValues - 10 new values (0-255), use '-' to leave the same.")
 
 
-def createPacket(packetNo, values):
+def savePacket(packetNo, values):
     """
     Overwrites the value in the current packet
     :param packetNo:
@@ -165,7 +183,7 @@ def createPacket(packetNo, values):
     return packetStr
 
 
-def createPacketHelp():
+def savePacketHelp():
     print("packetNo - ID (0-9) of new packet. If taken, will overwrite.\n"
           "values:list - 10 slot values (0-255). If less given, will pad with 0s.")
 
