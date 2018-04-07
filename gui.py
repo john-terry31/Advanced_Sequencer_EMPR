@@ -2,6 +2,8 @@ from Tkinter import *
 from ttk import *
 import AdvancedSequencer as AdvSeq
 import sequencer as Seq
+import tkMessageBox
+import ScrolledFrame
 
 _sequenceLength = 10
 _packetLength = 10
@@ -23,7 +25,7 @@ class NotebookDemo(Frame):
         self.pCombo = None  # Packet tab combobox
         self.pComboValue = None
         self.packet = None
-        self.sSpinArray = [] # Holds the sequence spinbox instances
+        self.sSpinArray = []  # Holds the sequence spinbox instances
 
         # Sequence tab variables
         self.sequenceFrame = None
@@ -36,6 +38,15 @@ class NotebookDemo(Frame):
         self.sPatLabel = None
         self.sPatCombo = None
         self.clearB = None
+
+        self.sectionContainer = None
+        self.sSectionArray = []
+        self.startBox = None
+        self.endBox = None
+        self.repBox = None
+        self.patBox = None
+        self.addB = None
+        self.removeB = None
 
         self._create_widgets()
 
@@ -214,7 +225,7 @@ class NotebookDemo(Frame):
         for col in range(_sequenceLength):
             self.sSpinArray.append(Spinbox(self.sSpinContainer, from_=0, to=len(_objectLst), wrap=TRUE, width=3))
             self.sSpinArray[col].pack(side=LEFT)
-        for col in range(_sequenceLength+2):
+        for col in range(_sequenceLength + 2):
             if col <= 2:
                 self.sContainer.columnconfigure(col, weight=2, uniform=1)
             else:
@@ -223,7 +234,7 @@ class NotebookDemo(Frame):
         self.sRepLabel = Label(self.sContainer, text='Repeats:')
         self.sRepLabel.grid(row=1, column=0, padx=5, pady=5)
         self.sRepInput = Spinbox(self.sContainer, from_=0, to=_maxSeqRepeats, wrap=TRUE,
-                                width=3)    # #################### Needs to have validation for numeric entry
+                                 width=3)  # #################### Needs to have validation for numeric entry
         self.sRepInput.grid(row=1, column=1, pady=5)
         self.sPatLabel = Label(self.sContainer, text='Pattern:')
         self.sPatLabel.grid(row=2, column=0, padx=5)
@@ -255,7 +266,6 @@ class NotebookDemo(Frame):
         return self.sCombo.get()
 
     def createExtraSectionContainer(self, tab):
-        currentRows = []
 
         headerContainer = Labelframe(tab)
         headerContainer.pack(fill=X, side=TOP)
@@ -268,24 +278,97 @@ class NotebookDemo(Frame):
         patHeaderLbl = Label(headerContainer, text='Pattern')
         patHeaderLbl.grid(row=0, column=3, padx=5)
 
-        self.blankSection(headerContainer, currentRows)
+        for col in range(6):
+            headerContainer.columnconfigure(col, weight=1, uniform=1)
 
-    def blankSection(self, container, rows):
-        startBox = Spinbox(container, from_=0, to=9, wrap=TRUE, width=3)
-        startBox.grid(row=len(rows)+1, column=0, padx=5)
-        endBox = Spinbox(container, from_=0, to=_maxSeqRepeats, wrap=TRUE, width=3)
-        endBox.grid(row=len(rows)+1, column=1, padx=5)
-        repBox = Spinbox(container, from_=0, to=9, wrap=TRUE, width=3)
-        repBox.grid(row=len(rows)+1, column=2, padx=5)
-        patBox = Combobox(container, state='readonly', values=_patternLst)
-        patBox.grid(row=len(rows)+1, column=3, padx=5)
-        addB = Button(container, text='Add')
-        addB.grid(row=len(rows)+1, column=4, padx=5)
-        rows.append([None, None, None, None])
+        self.sectionContainer = ScrolledFrame.VerticalScrolledFrame(tab)
+        self.sectionContainer.pack(fill=X, side=TOP)
+        self.createBlankSection()
+
+    def createBlankSection(self):
+        if self.getCurSequence() != '':
+            rowToAdd = self.getLastRow()+1
+        else:
+            rowToAdd = 0
+        # Add section start spinbox
+        self.sSectionArray.append(Spinbox(self.sectionContainer.interior, from_=0, to=_sequenceLength - 2, wrap=TRUE, width=3))
+        self.sSectionArray[-1].grid(row=rowToAdd, column=0, padx=5)
+        # Add section end spinbox
+        self.sSectionArray.append(Spinbox(self.sectionContainer.interior, from_=0, to=_sequenceLength - 1, wrap=TRUE, width=3))
+        self.sSectionArray[-1].grid(row=rowToAdd, column=1, padx=5)
+        # Add section repeats spinbox
+        self.sSectionArray.append(Spinbox(self.sectionContainer.interior, from_=0, to=_maxSeqRepeats, wrap=TRUE, width=3))
+        self.sSectionArray[-1].grid(row=rowToAdd, column=2, padx=5)
+        # Add section pattern combobox
+        self.sSectionArray.append(Combobox(self.sectionContainer.interior, state='readonly', values=_patternLst, width=10))
+        self.sSectionArray[-1].grid(row=rowToAdd, column=3, padx=5)
+        # Create 'add button'
+        self.sSectionArray.append(Button(self.sectionContainer.interior, text='Add', command=self.addSectionButton))
+        self.sSectionArray[-1].grid(row=rowToAdd, column=4, padx=5)
+
+        for col in range(6):
+            self.sectionContainer.interior.columnconfigure(col, weight=1, uniform=1)
+
+    def addSectionButton(self):
+        if self.checkSection():
+            newSection = [int(self.sSectionArray[-5].get()),  # Start section
+                          int(self.sSectionArray[-4].get()),  # End section
+                          int(self.sSectionArray[-3].get()),  # Repeats
+                          int(_patternLst.index(self.sSectionArray[-2].get()))]  # Pattern
+            AdvSeq.sequences[int(self.getCurSequence())].append(newSection)
+
+            for widget in range(2, 6):
+                self.sSectionArray[-widget].config(state='disabled')
+            self.sSectionArray[-1].grid_remove()
+            del self.sSectionArray[-1]
+            self.sSectionArray.append(Button(self.sectionContainer.interior, text='Remove'))
+            self.sSectionArray[-1].grid(row=self.getLastRow(), column=4, padx=5)
+            self.sSectionArray[-1].config(command=lambda b=self.sSectionArray[-1]: self.removeSectionButton(b))
+
+            self.createBlankSection()
+            # Add the values to the sequence structure
+            # Make it Disabled/readonly
+            # create 'remove' button
+            # add new blank row
+        # Do the stuff to add a section
+
+    def getLastRow(self):
+        return (len(self.sSectionArray)/5)-1
+
+    def checkSection(self):
+        # Check a sequence has been selected
+        if self.getCurSequence() != '':
+            # Check a pattern has been selected
+            if self.sSectionArray[len(self.sSectionArray) - 2].get() != '':
+                # Check sequence start < sequence end
+                if int(self.sSectionArray[-5].get()) \
+                 < int(self.sSectionArray[-4].get()):
+                    return True
+                else:
+                    tkMessageBox.showerror('Error!', 'Section start must be < section end')
+            else:
+                tkMessageBox.showerror('Error!', 'You must select a pattern first')
+        else:
+            tkMessageBox.showerror('Error!', 'You must select a sequence first')
+        return False
+
+    def removeSectionButton(self, button):
+        info = button.grid_info()
+        for widget in range(5):
+            self.sSectionArray[(int(info['row']) * 5) + widget].grid_remove()
+        self.reGrid(int(info['row']))
+        del self.sSectionArray[(int(info['row']) * 5):(int(info['row']) * 5) + 5]
+
+    def reGrid(self, r):
+        for widget in range(((len(self.sSectionArray)/5)-(r+1))*5):
+            currentWidget = self.sSectionArray[-(widget+1)].grid_info()
+            self.sSectionArray[-(widget+1)].grid_forget()
+            self.sSectionArray[-(widget + 1)].grid(row=(int(currentWidget['row'])-1),
+                                                   column=int(currentWidget['column']), padx=5)
 
     def createButtonContainer(self, container):
         butContainer = Labelframe(container)
-        butContainer.pack(fill=BOTH, side=TOP)
+        butContainer.pack(fill=X, side=TOP)
 
         saveB = Button(butContainer, text='Save')
         saveB.grid(row=0, column=0, padx=50, pady=10)
