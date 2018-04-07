@@ -20,7 +20,7 @@ packets = [
 
 sequences = [
     # [sequence][mainPattern&repeats, mainSequence, subSection1, ....][Part]
-    [[0, 45], [1, 0, 0, 2, 0, 3, 0, 0, 0, 0], []],  # Sequence 0
+    [[0, 45], [1, 0, 0, 2, 0, 3, 0, 0, 0, 0], [1, 3, 14, 0]],  # Sequence 0
     [[0, 45], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]],      # Sequence 1
     [[0, 45], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]],      # Sequence 2
     [[0, 45], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]],      # .....

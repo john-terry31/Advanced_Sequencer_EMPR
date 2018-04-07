@@ -48,6 +48,8 @@ class NotebookDemo(Frame):
         self.addB = None
         self.removeB = None
 
+        self.saveSeq = None
+        self.outputSeq = None
         self._create_widgets()
 
     def _create_widgets(self):
@@ -253,6 +255,9 @@ class NotebookDemo(Frame):
             self.sRepInput.insert(0, 0)
             self.sPatCombo.set('')
 
+            self.clearSectionFrame()
+            self.createBlankSection()
+
     def sComboCallback(self, combo):
         if self.getCurSequence() != '':
             for obj in range(_sequenceLength):
@@ -262,11 +267,25 @@ class NotebookDemo(Frame):
             self.sRepInput.insert(0, AdvSeq.sequences[int(self.getCurSequence())][0][1])
             self.sPatCombo.set(_patternLst[AdvSeq.sequences[int(self.getCurSequence())][0][0]])
 
+            self.clearSectionFrame()
+            self.createBlankSection()
+            if len(AdvSeq.sequences[int(self.getCurSequence())]) > 2:
+                for section in range(len(AdvSeq.sequences[int(self.getCurSequence())])-2):
+                    section += 2
+                    self.sSectionArray[-5].delete(0, 3)
+                    self.sSectionArray[-5].insert(0, AdvSeq.sequences[int(self.getCurSequence())][section][0])
+                    self.sSectionArray[-4].delete(0, 3)
+                    self.sSectionArray[-4].insert(0, AdvSeq.sequences[int(self.getCurSequence())][section][1])
+                    self.sSectionArray[-3].delete(0, 3)
+                    self.sSectionArray[-3].insert(0, AdvSeq.sequences[int(self.getCurSequence())][section][2])
+                    self.sSectionArray[-2].set(_patternLst[AdvSeq.sequences[int(self.getCurSequence())][section][3]])
+                self.addSectionButton()
+            # #Add sections if present
+
     def getCurSequence(self):
         return self.sCombo.get()
 
     def createExtraSectionContainer(self, tab):
-
         headerContainer = Labelframe(tab)
         headerContainer.pack(fill=X, side=TOP)
         startHeaderLbl = Label(headerContainer, text='Section Start')
@@ -291,16 +310,20 @@ class NotebookDemo(Frame):
         else:
             rowToAdd = 0
         # Add section start spinbox
-        self.sSectionArray.append(Spinbox(self.sectionContainer.interior, from_=0, to=_sequenceLength - 2, wrap=TRUE, width=3))
+        self.sSectionArray.append(Spinbox(self.sectionContainer.interior, from_=0, to=_sequenceLength - 2,
+                                          wrap=TRUE, width=3))
         self.sSectionArray[-1].grid(row=rowToAdd, column=0, padx=5)
         # Add section end spinbox
-        self.sSectionArray.append(Spinbox(self.sectionContainer.interior, from_=0, to=_sequenceLength - 1, wrap=TRUE, width=3))
+        self.sSectionArray.append(Spinbox(self.sectionContainer.interior, from_=0, to=_sequenceLength - 1,
+                                          wrap=TRUE, width=3))
         self.sSectionArray[-1].grid(row=rowToAdd, column=1, padx=5)
         # Add section repeats spinbox
-        self.sSectionArray.append(Spinbox(self.sectionContainer.interior, from_=0, to=_maxSeqRepeats, wrap=TRUE, width=3))
+        self.sSectionArray.append(Spinbox(self.sectionContainer.interior, from_=0, to=_maxSeqRepeats, wrap=TRUE,
+                                          width=3))
         self.sSectionArray[-1].grid(row=rowToAdd, column=2, padx=5)
         # Add section pattern combobox
-        self.sSectionArray.append(Combobox(self.sectionContainer.interior, state='readonly', values=_patternLst, width=10))
+        self.sSectionArray.append(Combobox(self.sectionContainer.interior, state='readonly', values=_patternLst,
+                                           width=10))
         self.sSectionArray[-1].grid(row=rowToAdd, column=3, padx=5)
         # Create 'add button'
         self.sSectionArray.append(Button(self.sectionContainer.interior, text='Add', command=self.addSectionButton))
@@ -308,6 +331,11 @@ class NotebookDemo(Frame):
 
         for col in range(6):
             self.sectionContainer.interior.columnconfigure(col, weight=1, uniform=1)
+
+    def clearSectionFrame(self):
+        for widget in range(len(self.sSectionArray)):
+            self.sSectionArray[0].grid_remove()
+            del self.sSectionArray[0]
 
     def addSectionButton(self):
         if self.checkSection():
@@ -339,7 +367,7 @@ class NotebookDemo(Frame):
         # Check a sequence has been selected
         if self.getCurSequence() != '':
             # Check a pattern has been selected
-            if self.sSectionArray[len(self.sSectionArray) - 2].get() != '':
+            if self.sSectionArray[-2].get() != '':
                 # Check sequence start < sequence end
                 if int(self.sSectionArray[-5].get()) \
                  < int(self.sSectionArray[-4].get()):
@@ -358,6 +386,7 @@ class NotebookDemo(Frame):
             self.sSectionArray[(int(info['row']) * 5) + widget].grid_remove()
         self.reGrid(int(info['row']))
         del self.sSectionArray[(int(info['row']) * 5):(int(info['row']) * 5) + 5]
+        del AdvSeq.sequences[self.getCurSequence()][int(info['row'])+2]
 
     def reGrid(self, r):
         for widget in range(((len(self.sSectionArray)/5)-(r+1))*5):
@@ -370,11 +399,17 @@ class NotebookDemo(Frame):
         butContainer = Labelframe(container)
         butContainer.pack(fill=X, side=TOP)
 
-        saveB = Button(butContainer, text='Save')
-        saveB.grid(row=0, column=0, padx=50, pady=10)
-        outputB = Button(butContainer, text='Save and Output')
-        outputB.grid(row=0, column=1, padx=50, pady=10)
+        self.saveSeq = Button(butContainer, text='Save', command=self.sequenceSaveButton)
+        self.saveSeq.grid(row=0, column=0, padx=50, pady=10)
+        self.outputSeq = Button(butContainer, text='Save and Output', command=self.sequenceOutputButton)
+        self.outputSeq.grid(row=0, column=1, padx=50, pady=10)
     # def addNewSection(self):
+
+    def sequenceSaveButton(self):
+        Seq.saveSequence(int(self.getCurSequence()), AdvSeq.sequences[int(self.getCurSequence())])
+
+    def sequenceOutputButton(self):
+        Seq.sendSequence(int(self.getCurSequence()), AdvSeq.sequences[int(self.getCurSequence())])
 
 
 if __name__ == '__main__':
