@@ -3,7 +3,7 @@ import serial
 comList = ["sendSequence", "sendSequenceSimple", "saveSequence", "savePacket", "editPacket"]
 
 separator = "."
-# mbed = serial.Serial('/dev/ttyACM0', 9600)
+mbed = serial.Serial('/dev/ttyACM0', 9600)
 
 
 '''
@@ -166,11 +166,6 @@ def getPacket(packetNo):
     # Get the packet from the packets array
 
 
-def editPacketHelp():
-    print("packetNo - ID (0-9) of the packet to edit.\n"
-          "newValues - 10 new values (0-255), use '-' to leave the same.")
-
-
 def savePacket(packetNo, values):
     """
     Overwrites the value in the current packet
@@ -179,8 +174,10 @@ def savePacket(packetNo, values):
     :return:
     """
 
-    packetStr = str(packetNo) + str(values)
-    return packetStr
+    packetStr = str(packetNo) + separator + str(values)
+    # Notify mbed of packetSave
+    # wait for response
+    sendString(packetStr)
 
 
 def savePacketHelp():
@@ -190,13 +187,9 @@ def savePacketHelp():
 
 def saveSequence(seqNo, sequenceData):
     """
-    Save a packet sequence to the
-    :param comType:
-    :param packets:
-    :param repeats:
-    :param sectionStart:
-    :param sectionEnd:
-    :param sectionRepeat:
+
+    :param seqNo:
+    :param sequenceData:
     :return:
     """
 
@@ -208,4 +201,8 @@ def saveSequenceHelp():
           "sectionStart:int - start of section to repeat, '-' for none.\n"
           "sectionEnd:int - end of section to repeat, '-' for none.\n"
           "sectionRepeat:int - repetitions of specified section.")
+
+
+def sendString(outputStr):
+    mbed.write(outputStr)
 
