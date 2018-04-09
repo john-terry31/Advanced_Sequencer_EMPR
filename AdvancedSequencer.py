@@ -3,8 +3,12 @@ from Tkinter import *
 import gui
 import sequencer
 
-objectNum = 10
-maxPacketVal = 255
+_confirmationPattern = 202
+_initSignal = 101
+_packetLength = 10
+_objectNum = 10
+_maxPacketVal = 255
+_maxSeqRepeats = 99
 packets = [
     [1, 0, 0, 25, 0, 102, 0, 0, 0, 0],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -31,6 +35,31 @@ sequences = [
     [[0, 45], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
     [[0, 45], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 ]
+
+
+def getMaxSeqRepeats():
+    return _maxSeqRepeats
+
+
+def getObjectNum():
+    return _objectNum
+
+
+def getMaxPacketVal():
+    return _maxPacketVal
+
+
+def getInitPattern():
+    return _initSignal
+
+
+def getConPattern():
+    return _confirmationPattern
+
+
+def getPacketLength():
+    return _packetLength
+
 
 '''## Class defining packet objects ##
 class Packet(object):

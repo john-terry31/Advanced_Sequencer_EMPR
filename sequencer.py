@@ -1,7 +1,8 @@
 import serial
+import AdvancedSequencer as AdvSeq
 
 comList = ["sendSequence", "sendSequenceSimple", "saveSequence", "savePacket", "editPacket"]
-
+conPattern = AdvSeq.getConPattern()
 separator = "."
 mbed = serial.Serial('/dev/ttyACM0', 9600)
 
@@ -27,24 +28,80 @@ Flashing gradual       ## Flash between off and the transition chunks
 '''
 
 
+def sendInitSignal(signal):
+    sendSerial(signal)
+
+    # Wait for length of init data
+    packetLen = mbed.read(1)
+
+    sendSerial(packetLen)
+    packetData = mbed.read(packetLen)
+
+    sequenceLen = mbed.read(1)
+
+    sendSerial(sequenceLen)
+    sequenceData = mbed.read(sequenceLen)
+
+    decodeInitData(packetData, sequenceData)
+
+
+def decodePackets(packetString):
+    if len(packetString) != (AdvSeq.getObjectNum() * AdvSeq.getPacketLength()):
+        print 'Invalid packet init data - booting with default'
+        # TODO : Some default stuff
+        return
+
+    for i, c in enumerate(packetString):
+        AdvSeq.packets[i//AdvSeq.getPacketLength()].append(c)
+
+
+def decodeSequences(seqString):
+    sequence = 0
+    section = []
+    lastWasSeparator = False
+    for c in seqString:
+        if c == separator and not lastWasSeparator:
+            AdvSeq.sequences[sequence].append(section)
+            section += []
+        elif c == separator and lastWasSeparator:
+            sequence += 1
+        else:
+            section.append(c)
+
+
+def decodeInitData(packets, sequences):   # Need to wipe packet and sequence arrays first
+    decodePackets(packets)
+    decodeSequences(sequences)
+
+
 def startSequencer():
     print("JT's Advanced Sequencer\n")
     commandList(comList)
+    sendInitSignal(AdvSeq.getInitPattern())
 
 
-def sendSerial(message):
-    mbed.write(message)
+def sendSerial(messageArray):
+    for byte in messageArray:
+        if isinstance(byte, str):
+            mbed.write(byte)
+        elif isinstance(byte, int):
+            mbed.write(str(byte))
+        else:
+            print('Invalid type')
 
 
-def concatPackets(mes, packets):
-    pack = str(packets) + "-"*(10-len(str(packets)))
-    mes = concatToMessage(mes, pack)
-    return mes
+def sendMessage(messageType, stringArray):
+    sendLength = len(stringArray)
+    lenTypeArray = [sendLength, separator, messageType]
 
+    # Send main info
+    sendSerial(lenTypeArray)
+    # Wait for response
+    read = mbed.read(1)
 
-def concatToMessage(mes, add):
-    mes = mes + add + separator
-    return mes
+    # Send message if correct response received
+    if read == conPattern:
+        sendSerial(stringArray)
 
 
 def checkInputs():
@@ -52,27 +109,6 @@ def checkInputs():
     Some stuff in here
     :return:
     """
-
-
-def sendSequenceSimple(comType, packets, repeats):
-    """
-    Call into send sequence with 0 for the last 3 arguments.
-    :param comType: sequence type (int)
-    :param packets: the packets to send (list)
-    :param repeats: number of times to display sequence (int)
-    :return: string to send
-    """
-    message = ""
-    message = concatToMessage(message, str(comType))
-    message = concatPackets(message, packets)
-    message = concatToMessage(message, str(repeats))
-    message = concatToMessage(message, "0")
-    message = concatToMessage(message, "0")
-    message = concatToMessage(message, "00")
-    sendSerial(message)
-
-
-''' Need to send extra data on how many sections/different transition patterns if adding that below'''
 
 
 def sendSequence(seqNo, sequenceData):
@@ -86,12 +122,6 @@ def sendSequence(seqNo, sequenceData):
     :return: string to send
     """
     message = ""
-    message = concatToMessage(message, str(comType))
-    message = concatPackets(message, packets)
-    message = concatToMessage(message, str(repeats))
-    message = concatToMessage(message, str(sectionStart))
-    message = concatToMessage(message, str(sectionEnd))
-    message = concatToMessage(message, str(sectionRepeat))
     sendSerial(message)
 
 
@@ -177,7 +207,7 @@ def savePacket(packetNo, values):
     packetStr = str(packetNo) + separator + str(values)
     # Notify mbed of packetSave
     # wait for response
-    sendString(packetStr)
+    sendSerial(packetStr)
 
 
 def savePacketHelp():
@@ -202,7 +232,4 @@ def saveSequenceHelp():
           "sectionEnd:int - end of section to repeat, '-' for none.\n"
           "sectionRepeat:int - repetitions of specified section.")
 
-
-def sendString(outputStr):
-    mbed.write(outputStr)
 

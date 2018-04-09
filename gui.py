@@ -6,9 +6,10 @@ import tkMessageBox
 import ScrolledFrame
 
 _sequenceLength = 10
-_packetLength = 10
-_maxSeqRepeats = 99
-_objectLst = [i for i in range(10)]
+_packetLength = AdvSeq.getPacketLength()
+_maxPacketVal = AdvSeq.getMaxPacketVal()
+_maxSeqRepeats = AdvSeq.getMaxSeqRepeats()
+_objectLst = [i for i in range(AdvSeq.getObjectNum())]
 _patternLst = ['Normal', 'Fade', 'Gradual', 'Flashing']
 
 
@@ -154,7 +155,7 @@ class NotebookDemo(Frame):
         numContainer = Labelframe(packetFrame, height=100, text='Packet values:')
         numContainer.pack(side=TOP, fill=X)
         for col in range(_packetLength):
-            self.pSpinArray.append(Spinbox(numContainer, from_=0, to=AdvSeq.maxPacketVal, wrap=TRUE, width=3))
+            self.pSpinArray.append(Spinbox(numContainer, from_=0, to=_maxPacketVal, wrap=TRUE, width=3))
             self.pSpinArray[col].grid(row=0, column=col, padx=5, pady=50)
         numContainer.rowconfigure(0, weight=1)
         for col in range(_packetLength):
