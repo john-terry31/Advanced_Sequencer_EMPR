@@ -75,7 +75,7 @@ def sendSequenceSimple(comType, packets, repeats):
 ''' Need to send extra data on how many sections/different transition patterns if adding that below'''
 
 
-def sendSequence(comType, packets, repeats, sectionStart=0, sectionEnd=0, sectionRepeat=0):
+def sendSequence(seqNo, sequenceData):
     """
     :param comType:
     :param packets:
@@ -188,7 +188,7 @@ def savePacketHelp():
           "values:list - 10 slot values (0-255). If less given, will pad with 0s.")
 
 
-def createSequence(comType, packets, repeats, sectionStart, sectionEnd, sectionRepeat):
+def saveSequence(seqNo, sequenceData):
     """
     Save a packet sequence to the
     :param comType:
@@ -201,10 +201,11 @@ def createSequence(comType, packets, repeats, sectionStart, sectionEnd, sectionR
     """
 
 
-def createSequenceHelp():
+def saveSequenceHelp():
     print("comType:int - see comTypeHelp().\n"
           "packets:string - packets in the sequence.\n"
           "repeats:int - sequence repetitions.\n"
           "sectionStart:int - start of section to repeat, '-' for none.\n"
           "sectionEnd:int - end of section to repeat, '-' for none.\n"
           "sectionRepeat:int - repetitions of specified section.")
+
