@@ -47,9 +47,12 @@ class NotebookDemo(Frame):
         self.patBox = None
         self.addB = None
         self.removeB = None
-
         self.saveSeq = None
         self.outputSeq = None
+
+        self.helpFrame = None
+        self.helpMsg = None
+        self.helpLbl = None
         self._create_widgets()
 
     def _create_widgets(self):
@@ -74,6 +77,7 @@ class NotebookDemo(Frame):
         self._create_text_tab(nb)
         self.createPacketTab(nb)
         self.createSequenceTab(nb)
+        self.createHelpTab(nb)
 
     def _create_descrip_tab(self, nb):
         # frame to hold contentx
@@ -410,6 +414,22 @@ class NotebookDemo(Frame):
 
     def sequenceOutputButton(self):
         Seq.sendSequence(int(self.getCurSequence()), AdvSeq.sequences[int(self.getCurSequence())])
+
+    # =============================================================================
+
+    def createHelpTab(self, nb):
+        self.helpFrame = Frame(nb)
+
+        # TODO Add info to message etc
+        self.helpMsg = ["Some stuff to help the user."]
+
+        self.helpLbl = Label(self.helpFrame, wraplength='4i', justify=LEFT, anchor=N,
+                             text=''.join(self.helpMsg))
+
+        # position and set resize behaviour
+        self.helpLbl.grid(row=0, column=0, columnspan=2, sticky='new', pady=5)
+        self.helpFrame.rowconfigure(1, weight=1)
+        self.helpFrame.columnconfigure((0, 1), weight=1, uniform=1)
 
 
 if __name__ == '__main__':
