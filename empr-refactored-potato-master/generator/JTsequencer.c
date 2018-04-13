@@ -13,22 +13,42 @@
 #include "Generator.h"
 #include "stdlib.h"
 
-#define PACKETLENGTH 10
-#define NO_PACKETS 10
+void advancedSequencer(void);
+void savePacket(int pNo, data);
+void outputSingleLoop(int pNo);
+void saveSequence(int sNo, sections, data);
+void outputSequence(int sNo);
+int getSlot(int p, int slot);
+void outputSection(int sNo, int sectionStart, int sectionEnd, int pattern, int repeats);
+void outputSNormal(int sNo, int sectionStart, int sectionEnd, int repeats);
+void outputSGradual(int p, int pNext);
+void outputSFade(int p, int pNext);
+void outputSFadeEq(int p, int pNext);
 
-char packetArray[NO_PACKETS][PACKETLENGTH] = {
+
+#define IC_CHANNEL 0
+#define PACKET_LENGTH 10
+#define NO_PACKETS 10
+#define INIT_SIGNAL 101
+
+char packetArray[NO_PACKETS][PACKET_LENGTH] = {
     // some stuff about packet data
 };
 
 void advancedSequencer(void)
 {
     uint32_t len, idx;
-    uint8_t buffer[10];
+    uint8_t initReceived, buffer[10];
     // Wait for serial transmission (10 slots)
     // Serial format: sequence type, packetData
 
+    // Wait for init signal
+    while (initReceived != INIT_SIGNAL)
+    {
+        initReceived = UART_ReveiveByte((LPC_UART_TypeDef *)LPC_UART0);
+    }
 
-    // Read sequence type
+    // Send packet length
 
     while (true) // Exit after no. packets
     {
@@ -46,7 +66,7 @@ void advancedSequencer(void)
 void savePacket(int pNo, data)
 {
     int i;
-    for (i=0; i<PACKETLENGTH; i++)
+    for (i=0; i<PACKET_LENGTH; i++)
     {
         packetArray[pNo][i] = data[i];
     }
@@ -55,10 +75,10 @@ void savePacket(int pNo, data)
 void outputSingleLoop(int pNo)
 {
     int i;
-    for (i=0; i<PACKETLENGTH; i++)
+    for (i=0; i<PACKET_LENGTH; i++)
     {
-    // DMX_Output_Single(packetArray[pNo][i], packetArray[pNo][i+1], packetArray[pNo][i+2]
-    // needs wrap around thingy
+        dmx_output_single(packetArray[pNo][i], packetArray[pNo][i+1], packetArray[pNo][i+2], IC_CHANNEL);
+        // needs wrap around thingy
     }
 }
 
@@ -109,6 +129,7 @@ void outputSection(int sNo, int sectionStart, int sectionEnd, int pattern, int r
     }
 }
 
+
 void outputSNormal(int sNo, int sectionStart, int sectionEnd, int repeats)
 {
     int i, j, p;
@@ -126,15 +147,15 @@ void outputSNormal(int sNo, int sectionStart, int sectionEnd, int repeats)
 void outputSGradual(int p, int pNext)
 {
     int i, j, k;
-    char temp[PACKETLENGTH], differential[PACKETLENGTH];
+    char temp[PACKET_LENGTH], differential[PACKET_LENGTH];
     outputPacket(packetArray[p]);
-    for (i=0; i<PACKETLENGTH; i++)
+    for (i=0; i<PACKET_LENGTH; i++)
     {
         differential[i] = (getSlot(p, i)-getSlot(pNext, i))/5; // Ignore warnings, will work as inputs are
     }
     for (j=0; j<=3; j++)
     {
-        for (k=0; k<PACKETLENGTH; k++)
+        for (k=0; k<PACKET_LENGTH; k++)
         {
             temp[k] = diff[k]*j;  // Does this work for p>pNext??????
         }
@@ -146,12 +167,12 @@ void outputSGradual(int p, int pNext)
 void outputSFade(int p, int pNext)
 {
     int i, j;
-    int temp[PACKETLENGTH];
+    char temp[PACKET_LENGTH];
     outputPacket(packetArray[p]);
     // Decrease
     for (i=255; i>=0; i--)
     {
-        for (j=0; j<PACKETLENGTH; j++)
+        for (j=0; j<PACKET_LENGTH; j++)
         {
             if (packetArray[p][j] >= i)
             {
@@ -163,7 +184,7 @@ void outputSFade(int p, int pNext)
     // Increase
     for (i=0; i<=255; i++)
     {
-        for (j=0; j<PACKETLENGTH; j++)
+        for (j=0; j<PACKET_LENGTH; j++)
         {
             if (i < packetArray[pNext][j])
             {
@@ -174,14 +195,14 @@ void outputSFade(int p, int pNext)
     }
 }
 
-// Incase it looks better. Needs some refinement
+// In case it looks better. Needs some refinement
 void outputSFadeEq(int p, int pNext)
 {
     int i, c, d;
-    int cHigh[PACKETLENGTH];
-    int cLow[PACKETLENGTH];
-    int temp[PACKETLENGTH];
-    for (i=0; i<PACKETLENGTH; i++)
+    char cHigh[PACKET_LENGTH];
+    char cLow[PACKET_LENGTH];
+    char temp[PACKET_LENGTH];
+    for (i=0; i<PACKET_LENGTH; i++)
     {
         cLow[i] = packetArray[p][i]/255;
         cHigh[i] = packetArray[pNext][i]/255;
@@ -189,7 +210,7 @@ void outputSFadeEq(int p, int pNext)
     // Decrease
     for (c=0; c<=255; c++)
     {
-        for (d=0; d<PACKETLENGTH; d++)
+        for (d=0; d<PACKET_LENGTH; d++)
         {
             temp[d] = packetArray[p][d] - cLow[d];  
         }
@@ -198,7 +219,7 @@ void outputSFadeEq(int p, int pNext)
     // Increase     (this isn't right at the moment)
     for (c=0; c<=255; c++)
     {
-        for (d=0; d<PACKETLENGTH; d++)
+        for (d=0; d<PACKET_LENGTH; d++)
         {
             temp[d] = packetArray[pNext][d] - cHigh[d];
         }

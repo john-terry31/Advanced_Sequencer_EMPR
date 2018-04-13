@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="empr_refactored_potato_master"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="empr_refactored_potato_master">
+				<Option output="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/empr_refactored_potato_master.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP1"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_2"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_calc"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_combined"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/combined"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task1"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task2"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task3"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task4"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task5"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 empr_refactored_potato_master"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="empr_refactored_potato_master/fast">
+				<Option output="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/empr_refactored_potato_master.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP1"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_2"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_calc"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_combined"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/combined"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task1"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task2"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task3"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task4"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task5"/>
+					<Add directory="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 empr_refactored_potato_master/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP1/mp1.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP1/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP1/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2/mp2.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_2/mp2.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_2/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_2/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_calc/mp2.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_calc/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_calc/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_combined/mp2.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_combined/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP2_combined/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/combined/mp3.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/combined/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/combined/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task1/mp3.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task1/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task1/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task2/mp3.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task2/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task2/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task3/mp3.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task3/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task3/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task4/mp3.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task4/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task4/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task5/mp3.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task5/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/Mini Projects/MP3/task5/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/EMPR.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/EMPR.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/Generator.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/Generator.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/JTsequencer.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/JTsequencer.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/keypad.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/keypad.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/lcd.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/lcd.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/leds.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/leds.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/vector.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/vector.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/misc/monitor.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor/keypad.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor/lcd.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor/lcd.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor/leds.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor/leds.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor/monitor.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor/serial.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/monitor/serial.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

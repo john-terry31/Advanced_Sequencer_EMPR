@@ -50,12 +50,13 @@ void gen3_makeSequence(void);
 void gen3_displaySequence(void);
 char gen3_chooseRepeat(void);
 void gen3_sendSequence(int repetitions);
+void dmx_output_single(int val1, int val2, int val3, int slot);
 //{blue , red , green
 
 char packets[10][512] = //512 not 1536?
         {
                 //{0}
-                {0, 250, 0, 160, 103, 145,45, 77, 170, 170, 170, 170,170, 170, 170, 170, 170, 170,170, 170, 170, 170, 170, 170,170, 170, 170, 170, 170, 170},
+                {0, 250,0,160,103,145,45,77,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170,170},
                 {255,255,255},
                 {255}
         };

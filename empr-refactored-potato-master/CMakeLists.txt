@@ -21,6 +21,7 @@ add_executable(empr_refactored_potato_master
         generator/EMPR.c
         generator/EMPR.h
         generator/Generator.c
+        generator/Generator.h
         generator/JTsequencer.c
         generator/JTsequencer.h
         generator/keypad.c

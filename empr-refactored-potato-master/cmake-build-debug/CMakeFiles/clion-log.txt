@@ -1,11 +1,4 @@
 "C:\Program Files\JetBrains\CLion 2018.1.1\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/MinGW/bin/mingw32-make.exe -G "CodeBlocks - MinGW Makefiles" "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master"
--- The C compiler identification is GNU 6.3.0
--- Check for working C compiler: C:/MinGW/bin/gcc.exe
--- Check for working C compiler: C:/MinGW/bin/gcc.exe -- works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Detecting C compile features
--- Detecting C compile features - done
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/cmake-build-debug

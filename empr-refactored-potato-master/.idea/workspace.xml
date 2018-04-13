@@ -12,10 +12,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cde76b2f-c178-4aae-b61d-a1b4b226a05d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../Generator.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JTsequencer.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JTsequencer.h" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeRCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeSystem.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/a.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/flags.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/includes_C.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/link.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/linklibs.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/objects1.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/empr_refactored_potato_master.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/Generator.c" beforeDir="false" afterPath="$PROJECT_DIR$/generator/Generator.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/Generator.h" beforeDir="false" afterPath="$PROJECT_DIR$/generator/Generator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator/JTsequencer.c" beforeDir="false" afterPath="$PROJECT_DIR$/generator/JTsequencer.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
@@ -32,65 +64,46 @@
       <file leaf-file-name="Generator.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator/Generator.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            <state>
+              <caret line="21" column="10" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lcd.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generator/lcd.c">
+      <file leaf-file-name="Generator.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generator/Generator.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+            <state relative-caret-position="353">
+              <caret line="34" column="63" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="keypad.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generator/keypad.c">
+      <file leaf-file-name="EMPR.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generator/EMPR.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+            <state relative-caret-position="544">
+              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EMPR.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generator/EMPR.c">
+      <file leaf-file-name="JTsequencer.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/generator/JTsequencer.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="104" column="54" selection-start-line="104" selection-start-column="54" selection-end-line="104" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serial.c" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/generator/serial.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="3" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="monitor.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/misc/monitor.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5967">
-              <caret line="351" column="40" selection-start-line="351" selection-start-column="40" selection-end-line="351" selection-end-column="40" />
+            <state relative-caret-position="350">
+              <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="JTsequencer.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator/JTsequencer.h">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -144,6 +157,8 @@
         <option value="$PROJECT_DIR$/generator/keypad.c" />
         <option value="$PROJECT_DIR$/generator/lcd.c" />
         <option value="$PROJECT_DIR$/generator/EMPR.c" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/generator/Generator.h" />
         <option value="$PROJECT_DIR$/generator/Generator.c" />
         <option value="$PROJECT_DIR$/generator/JTsequencer.c" />
       </list>
@@ -175,6 +190,11 @@
             <path>
               <item name="empr_refactored_potato_master" type="b2602c69:ProjectViewProjectNode" />
               <item name="empr-refactored-potato-master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="empr_refactored_potato_master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="empr-refactored-potato-master" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="empr_refactored_potato_master" type="b2602c69:ProjectViewProjectNode" />
@@ -229,7 +249,7 @@
       <workItem from="1519639115707" duration="17294000" />
       <workItem from="1519723805398" duration="8134000" />
       <workItem from="1520336661298" duration="3944000" />
-      <workItem from="1523634066645" duration="539000" />
+      <workItem from="1523634066645" duration="6907000" />
     </task>
     <task id="LOCAL-00001" summary="Import project to CLion">
       <created>1523634292083</created>
@@ -238,21 +258,29 @@
       <option name="project" value="LOCAL" />
       <updated>1523634292084</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed import problems and updated to latest version">
+      <created>1523634978005</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523634978005</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66561000" />
+    <option name="totallyTimeSpent" value="72929000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.123046875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.140625" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32963374" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50065106" side_tool="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32965517" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49934897" visible="true" weight="0.32965517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -277,7 +305,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Import project to CLion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Import project to CLion" />
+    <MESSAGE value="Fixed import problems and updated to latest version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed import problems and updated to latest version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,20 +314,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/generator/Generator.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/lcd.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generator/keypad.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
@@ -336,9 +351,6 @@
           <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/generator/Generator.c">
       <provider selected="true" editor-type-id="text-editor" />
@@ -497,13 +509,6 @@
     <entry file="file://$PROJECT_DIR$/generator/leds.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/EMPR.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generator/keypad.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
@@ -519,27 +524,12 @@
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.cpp" />
-    <entry file="file://$PROJECT_DIR$/generator/Generator.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/monitor/serial.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-339" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/monitor/monitor.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="398" column="16" selection-start-line="398" selection-start-column="10" selection-end-line="398" selection-end-column="16" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/JTsequencer.h">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/misc/monitor.c">
       <provider selected="true" editor-type-id="text-editor">
@@ -555,17 +545,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/JTsequencer.c">
+    <entry file="file://$PROJECT_DIR$/generator/serial.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1887">
-          <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/serial.c">
+    <entry file="file://$PROJECT_DIR$/monitor/serial.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="3" selection-end-column="22" />
+        <state relative-caret-position="204">
+          <caret line="12" column="85" lean-forward="true" selection-start-line="12" selection-start-column="85" selection-end-line="12" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/EMPR.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/JTsequencer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/empr_refactored_potato_master.cbp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1479" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-389" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/Generator.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/Generator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="34" column="63" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/JTsequencer.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
         </state>
       </provider>
     </entry>
