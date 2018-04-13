@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Term2.dir/EMPR.c.o CMakeFiles/Term2.dir/Generator.c.o CMakeFiles/Term2.dir/serial.c.o  -o Term2 

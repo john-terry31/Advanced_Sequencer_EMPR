@@ -1,0 +1,115 @@
+#include "lpc17xx_gpio.h"
+#include "lpc17xx_systick.h"
+#include "lpc17xx_i2c.h"
+#include "lpc_types.h"
+#include "lpc17xx_pinsel.h"
+#include "LPC17xx.h"
+#include "serial.c"
+#include "string.h"
+
+void setInt(int);
+void i2c_init(void);
+
+char buff[30];
+
+void main(void){
+  char string[100];
+  serial_init();
+  write_usb_serial_blocking("Starting\n", 10);
+  //GPIO_SetDir(1, 0xB40000, 1);
+
+  /*  setInt(0);
+  SYSTICK_InternalInit(100);
+  SYSTICK_IntCmd(ENABLE);
+  SYSTICK_Cmd(ENABLE); */
+
+  i2c_init();
+  I2C_Init(LPC_I2C1, 100000);
+  I2C_Cmd(LPC_I2C1, ENABLE);
+
+  buff[0] = 0;
+  
+  I2C_M_SETUP_Type transferCfg;
+  transferCfg.tx_data = buff;
+  transferCfg.tx_length = 8;
+  transferCfg.rx_data = NULL;
+  transferCfg.rx_length = 0;
+  //transferCfg.retransmissions_max = 3;
+
+  int addr;
+  for (addr = 0; addr < 128; addr++) {
+    sprintf(string, "Testing: %3d    %2x \n", addr, addr);
+    write_usb_serial_blocking(string, strlen(string));
+    strcpy(string,"");
+    transferCfg.sl_addr7bit = addr;
+    Status i2c_status = I2C_MasterTransferData(LPC_I2C1, &transferCfg, I2C_TRANSFER_INTERRUPT);
+    if (i2c_status == SUCCESS) {
+      sprintf(string, "SUCCESS Addr: %3d    %2x \n", addr, addr);
+      write_usb_serial_blocking(string, strlen(string));
+    }
+  }
+  write_usb_serial_blocking("Ending\n", 8);
+}
+
+
+//void SysTick_Handler(void){
+//}
+/*
+void write_terminal(char* format, ){
+  char  string[10];
+  sprintf(string, i_string, addr)
+    write_usb_serial_blocking(string, strlen(string));
+    }*/
+
+void i2c_init(void) {
+  PINSEL_CFG_Type PinCfg;
+
+  PinCfg.Funcnum = 3;
+  PinCfg.OpenDrain = 1;
+  PinCfg.Pinmode = 0;
+  PinCfg.Portnum = 0;
+  PinCfg.Pinnum = 0;
+  PINSEL_ConfigPin(&PinCfg);
+  PinCfg.Pinnum++;
+  PINSEL_ConfigPin(&PinCfg);
+  
+}
+
+
+void setInt(int number)
+{
+  GPIO_ClearValue(1, 0xB40000);
+  switch(number)
+    {
+    case 1: GPIO_SetValue(1, 0x800000);
+      break;
+    case 2: GPIO_SetValue(1, 0x200000);
+      break;
+    case 3: GPIO_SetValue(1, 0xA00000);
+      break;
+    case 4: GPIO_SetValue(1, 0x100000);
+      break;
+    case 5: GPIO_SetValue(1, 0x900000);
+      break;
+    case 6: GPIO_SetValue(1, 0x300000);
+      break;
+    case 7: GPIO_SetValue(1, 0xB00000);
+      break;
+    case 8: GPIO_SetValue(1, 0x40000);
+      break;
+    case 9: GPIO_SetValue(1, 0x840000);
+      break;
+    case 10: GPIO_SetValue(1, 0x240000);
+      break;
+    case 11: GPIO_SetValue(1, 0xA40000);
+     break;
+    case 12: GPIO_SetValue(1, 0x140000);
+     break;
+    case 13: GPIO_SetValue(1, 0x940000);
+      break;
+    case 14: GPIO_SetValue(1, 0x340000);
+      break;
+    case 15: GPIO_SetValue(1, 0xB40000);
+      break;     
+    }
+}

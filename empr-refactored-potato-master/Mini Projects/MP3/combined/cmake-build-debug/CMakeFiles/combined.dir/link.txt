@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/combined.dir/mp3.c.o CMakeFiles/combined.dir/serial.c.o  -o combined 
