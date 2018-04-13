@@ -10,13 +10,15 @@
 #include "EMPR.h"
 #include "keypad.h"
 #include "lpc_types.h"
+#include "Generator.h"
+#include "stdlib.h"
 
 #define PACKETLENGTH 10
 #define NO_PACKETS 10
 
-int packetArray[NO_PACKETS][PACKETLENGTH] = {
+char packetArray[NO_PACKETS][PACKETLENGTH] = {
     // some stuff about packet data
-}
+};
 
 void advancedSequencer(void)
 {
@@ -41,7 +43,7 @@ void advancedSequencer(void)
     //
 }
 
-void savePacket(pNo, data)
+void savePacket(int pNo, data)
 {
     int i;
     for (i=0; i<PACKETLENGTH; i++)
@@ -50,7 +52,7 @@ void savePacket(pNo, data)
     }
 }
 
-void outputSingleLoop(pNo)
+void outputSingleLoop(int pNo)
 {
     int i;
     for (i=0; i<PACKETLENGTH; i++)
@@ -60,12 +62,12 @@ void outputSingleLoop(pNo)
     }
 }
 
-void saveSequence(sNo, sections, data)
+void saveSequence(int sNo, sections, data)
 {
     // Save according to format
 }
 
-void outputSequence(sNo)
+void outputSequence(int sNo)
 {
     // Work out order of sections.
     // for section in sequence:
@@ -73,7 +75,13 @@ void outputSequence(sNo)
     
 }
 
-void outputSection(sNo, sectionStart, sectionEnd, pattern, repeats)
+int getSlot(int p, int slot)
+{
+    int s = atoi((const char *) packetArray[p][slot]);
+    return s;
+}
+
+void outputSection(int sNo, int sectionStart, int sectionEnd, int pattern, int repeats)
 {
     int i, j;
     switch(pattern)
@@ -101,28 +109,28 @@ void outputSection(sNo, sectionStart, sectionEnd, pattern, repeats)
     }
 }
 
-void outputSNormal(sNo, sectionStart, sectionEnd, repeats)
+void outputSNormal(int sNo, int sectionStart, int sectionEnd, int repeats)
 {
     int i, j, p;
     for (i=0; i<=repeats; i++)
     {
         for (j=sectionStart; j<=sectionEnd; j++)
         {
-            p = sequence[sNo][j]
-            outputPacket(packetArray[p])
+            p = sequence[sNo][j];
+            outputPacket(packetArray[p]);
             // wait 1s
         }
     }
 }
 
-void outputSGradual(p, pNext)
+void outputSGradual(int p, int pNext)
 {
     int i, j, k;
-    int temp[PACKETLENGTH], differential[PACKETLENGTH];
+    char temp[PACKETLENGTH], differential[PACKETLENGTH];
     outputPacket(packetArray[p]);
     for (i=0; i<PACKETLENGTH; i++)
     {
-        differential[i] = (packetArray[p][i]-packetArray[pNext][i])/5;
+        differential[i] = (getSlot(p, i)-getSlot(pNext, i))/5; // Ignore warnings, will work as inputs are
     }
     for (j=0; j<=3; j++)
     {
@@ -135,7 +143,7 @@ void outputSGradual(p, pNext)
     }
 }
 
-void outputSFade(p, pNext)
+void outputSFade(int p, int pNext)
 {
     int i, j;
     int temp[PACKETLENGTH];
@@ -167,9 +175,12 @@ void outputSFade(p, pNext)
 }
 
 // Incase it looks better. Needs some refinement
-void outputSFadeEq(p, pNext)
+void outputSFadeEq(int p, int pNext)
 {
-    int temp[PACKETLENGTH], cLow[PACKETLENGTH], cHigh[PACKETLENGTH], i, c, d;
+    int i, c, d;
+    int cHigh[PACKETLENGTH];
+    int cLow[PACKETLENGTH];
+    int temp[PACKETLENGTH];
     for (i=0; i<PACKETLENGTH; i++)
     {
         cLow[i] = packetArray[p][i]/255;

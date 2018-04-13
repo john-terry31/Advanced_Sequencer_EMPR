@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="false">
-    <generated />
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="empr_refactored_potato_master" targetName="empr_refactored_potato_master" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -9,7 +11,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cde76b2f-c178-4aae-b61d-a1b4b226a05d" name="Default" comment="" />
+    <list default="true" id="cde76b2f-c178-4aae-b61d-a1b4b226a05d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../Generator.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JTsequencer.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JTsequencer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,6 +26,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Generator.c" pinned="false" current-in-tab="false">
@@ -51,31 +59,22 @@
       <file leaf-file-name="EMPR.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator/EMPR.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5474">
-              <caret line="322" column="1" selection-start-line="322" selection-start-column="1" selection-end-line="322" selection-end-column="1" />
+            <state relative-caret-position="493">
+              <caret line="104" column="54" selection-start-line="104" selection-start-column="54" selection-end-line="104" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serial.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="serial.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/generator/serial.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="17">
               <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="3" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JTsequencer.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generator/JTsequencer.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -131,6 +130,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="JT &lt;john.terry31@outlook.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
@@ -169,23 +173,13 @@
         <subPane>
           <expand>
             <path>
-              <item name="empr-refactored-potato-master" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="empr_refactored_potato_master" type="b2602c69:ProjectViewProjectNode" />
               <item name="empr-refactored-potato-master" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="empr-refactored-potato-master" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="empr_refactored_potato_master" type="b2602c69:ProjectViewProjectNode" />
               <item name="empr-refactored-potato-master" type="462c0819:PsiDirectoryNode" />
               <item name="generator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="empr-refactored-potato-master" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="empr-refactored-potato-master" type="462c0819:PsiDirectoryNode" />
-              <item name="misc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="empr-refactored-potato-master" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="empr-refactored-potato-master" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -235,22 +229,30 @@
       <workItem from="1519639115707" duration="17294000" />
       <workItem from="1519723805398" duration="8134000" />
       <workItem from="1520336661298" duration="3944000" />
-      <workItem from="1523634066645" duration="36000" />
+      <workItem from="1523634066645" duration="539000" />
     </task>
+    <task id="LOCAL-00001" summary="Import project to CLion">
+      <created>1523634292083</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1523634292084</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66058000" />
+    <option name="totallyTimeSpent" value="66561000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.123046875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.123046875" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32963374" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32965517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -274,6 +276,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="Import project to CLion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Import project to CLion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -522,13 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator/EMPR.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5474">
-          <caret line="322" column="1" selection-start-line="322" selection-start-column="1" selection-end-line="322" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/monitor/serial.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-339" />
@@ -538,13 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="398" column="16" selection-start-line="398" selection-start-column="10" selection-end-line="398" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator/serial.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -558,10 +548,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/generator/EMPR.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="104" column="54" selection-start-line="104" selection-start-column="54" selection-end-line="104" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/generator/JTsequencer.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="1887">
+          <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator/serial.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
