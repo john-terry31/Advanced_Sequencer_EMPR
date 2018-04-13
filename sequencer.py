@@ -2,10 +2,9 @@ import serial
 import AdvancedSequencer as AdvSeq
 
 comList = ["sendSequence", "sendSequenceSimple", "saveSequence", "savePacket", "editPacket"]
-conPattern = AdvSeq.getConPattern()
 separator = "."
-mbed = serial.Serial('/dev/ttyACM0', 9600)
-
+mbed = serial.Serial('/dev/ttyACM0', 9600)  # This is the linux port name
+conPattern = AdvSeq.getConPattern()
 
 '''
 Type: Specifies command
@@ -18,18 +17,18 @@ Type: Specifies command
 52 - Send sequence fade
 53 - Send sequence transition
 
-
-
 Sequence type ideas: 
 Single packet cycle    ## DO INSIDE C FILE
 Fade                   ## Go towards 0, then back up to next value
 Gradual Transition     ## Divide difference into chunks and send periodically
 Flashing gradual       ## Flash between off and the transition chunks
 '''
+# TODO : Document methods etc
 
 
-def sendInitSignal(signal):
-    sendSerial(signal)
+def sendInitSignal():
+    initSequenceArray = [AdvSeq.getInitPattern()]
+    sendSerial(initSequenceArray)
 
     # Wait for length of init data
     packetLen = mbed.read(1)
@@ -77,7 +76,7 @@ def decodeInitData(packets, sequences):   # Need to wipe packet and sequence arr
 def startSequencer():
     print("JT's Advanced Sequencer\n")
     commandList(comList)
-    sendInitSignal(AdvSeq.getInitPattern())
+    sendInitSignal()
 
 
 def sendSerial(messageArray):
@@ -113,13 +112,10 @@ def checkInputs():
 
 def sendSequence(seqNo, sequenceData):
     """
-    :param comType:
-    :param packets:
-    :param repeats:
-    :param sectionStart:
-    :param sectionEnd:
-    :param sectionRepeat:
-    :return: string to send
+
+    :param seqNo:
+    :param sequenceData:
+    :return:
     """
     message = ""
     sendSerial(message)

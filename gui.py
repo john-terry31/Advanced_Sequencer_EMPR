@@ -11,6 +11,7 @@ _maxPacketVal = AdvSeq.getMaxPacketVal()
 _maxSeqRepeats = AdvSeq.getMaxSeqRepeats()
 _objectLst = [i for i in range(AdvSeq.getObjectNum())]
 _patternLst = ['Normal', 'Fade', 'Gradual', 'Flashing']
+# TODO : Document methods etc
 
 
 class NotebookDemo(Frame):

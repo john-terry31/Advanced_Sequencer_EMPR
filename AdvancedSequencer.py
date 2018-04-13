@@ -1,7 +1,5 @@
 import serial
 from Tkinter import *
-import gui
-import sequencer
 
 _confirmationPattern = 202
 _initSignal = 101
@@ -35,6 +33,7 @@ sequences = [
     [[0, 45], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
     [[0, 45], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 ]
+# TODO : Document methods etc
 
 
 def getMaxSeqRepeats():
@@ -90,10 +89,20 @@ class Sequence(object):
 ''' When initialising need to get packet data first before anything else. To be used when editing etc.
     Needs to create a packets array and sequences array from this data.
 '''
-sequencer.startSequencer()
 
 
+def startSequencer():
+    import sequencer
+    sequencer.startSequencer()
+
+
+def startGUI():
+    import gui
+    app = gui.NotebookDemo(root)
+
+
+startSequencer()
 root = Tk()
-app = gui.NotebookDemo(root)
+startGUI()
 root.mainloop()
 
