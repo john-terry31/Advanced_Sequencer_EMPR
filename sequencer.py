@@ -112,17 +112,6 @@ def checkInputs():
     """
 
 
-def sendSequence(seqNo, sequenceData):
-    """
-
-    :param seqNo:
-    :param sequenceData:
-    :return:
-    """
-    message = ""
-    sendSerial(message)
-
-
 def commandList(lst):
     """
     Helper function. Display list of commands to terminal.
@@ -149,82 +138,48 @@ def commandHelp(com):
     globals()[helpCommand]()
 
 
-def sendPacketLoop(packetNo, newValues):
-    """
-    Edit individual packets. Up to 10 slots per, for simplicity.
-    Use '-' for leave unedited maybe?
-    :param packetNo:
-    :param newValues:
-    :return:
-    """
-
-    # Get packet
-    # Display current packet to user
-
-    packetStr = str(packetNo) + str(newValues)
-    return packetStr
-
-    # Needs to get packet first??
-
-
-def getPacket(packetNo):
-    """
-
-    :param packetNo:
-    :return:
-    """
-    # Get the packet from the packets array
-
-
-def makePacketArr(packetNo, values):
+def makePacketArr(packetNo, valuesLst):
     packetArr = [packetNo, separator]
-    for v in values:
+    for v in valuesLst:
         packetArr.append(v)
     return packetArr
 
 
-def savePacket(packetNo, values):
-    """
-    Overwrites the value in the current packet
-    :param packetNo:
-    :param values:
-    :return:
-    """
-
-    packetArr = makePacketArr(packetNo, values)
-    sendMessage(_savePacketCode, packetArr)
+def savePacket(packetNo, valuesLst):
+    sendMessage(_savePacketCode, makePacketArr(packetNo, valuesLst))
 
 
-def outputPacket(packetNo, values):
-    packetArr = makePacketArr(packetNo, values)
-    sendMessage(_saveOutputPacketCode, packetArr)
+def outputPacket(packetNo, valuesLst):
+    sendMessage(_saveOutputPacketCode, makePacketArr(packetNo, valuesLst))
 
 
-def savePacketHelp():
-    print("packetNo - ID (0-9) of new packet. Will overwrite.\n"
-          "values:list - slot values (0-255)")
+def loopPacket(packetNo, valuesLst):
+    sendMessage(_saveLoopPacketCode, makePacketArr(packetNo, valuesLst))
 
 
-def loopPacket(packetNo, values):
-    packetArr = makePacketArr(packetNo, values)
-    sendMessage(_saveLoopPacketCode, packetArr)
+def makeSeqArr(seqNo):
+    seqLength = AdvSeq.getSequenceLength()
+    seqLst = AdvSeq.sequences[seqNo]
+    # Add first subsection (main pattern and repeats)
+    sequenceArr = [seqLst[0][0], seqLst[0][1], separator]
+    # Append the main sequence
+    for v in range(seqLength):
+        sequenceArr.append(seqLst[1][v])
+
+    if len(seqLst) > 2:
+        for section in range(len(seqLst)-2): # Go through each extra section
+            sequenceArr.append(separator)
+            for sVal in range(4): # Subsections each have 4 values
+                sequenceArr.append(seqLst[section+2][sVal])
+
+    return sequenceArr
 
 
-def saveSequence(seqNo, sequenceData):
-    """
-
-    :param seqNo:
-    :param sequenceData:
-    :return:
-    """
+def saveSequence(seqNo):
+    sendMessage(_saveSequenceCode, makeSeqArr(seqNo))
 
 
-def saveSequenceHelp():
-    print("comType:int - see comTypeHelp().\n"
-          "packets:string - packets in the sequence.\n"
-          "repeats:int - sequence repetitions.\n"
-          "sectionStart:int - start of section to repeat, '-' for none.\n"
-          "sectionEnd:int - end of section to repeat, '-' for none.\n"
-          "sectionRepeat:int - repetitions of specified section.")
+def outputSequence(seqNo):
+    sendMessage(_saveOutputSequenceCode, makeSeqArr(seqNo))
 
 

@@ -5,6 +5,7 @@ _confirmationPattern = 202
 _initSignal = 101
 _packetLength = 10
 _objectNum = 10
+_sequenceLength = 10
 _maxPacketVal = 255
 _maxSeqRepeats = 99
 packets = [
@@ -58,6 +59,10 @@ def getConPattern():
 
 def getPacketLength():
     return _packetLength
+
+
+def getSequenceLength():
+    return _sequenceLength
 
 
 '''## Class defining packet objects ##

@@ -5,7 +5,7 @@ import sequencer as Seq
 import tkMessageBox
 import ScrolledFrame
 
-_sequenceLength = 10
+_sequenceLength = AdvSeq.getSequenceLength()
 _packetLength = AdvSeq.getPacketLength()
 _maxPacketVal = AdvSeq.getMaxPacketVal()
 _maxSeqRepeats = AdvSeq.getMaxSeqRepeats()
@@ -193,17 +193,17 @@ class NotebookDemo(Frame):
     def saveButton(self):
         if self.getCurPacket() != '':
             self.updatePacket(self.getCurPacket())
-            Seq.savePacket(packetNo=self.getCurPacket(), values=AdvSeq.packets[int(self.getCurPacket())])
+            Seq.savePacket(packetNo=self.getCurPacket(), valuesLst=AdvSeq.packets[int(self.getCurPacket())])
 
     def saveOutputPacketButton(self):
         if self.getCurPacket() != '':
             self.updatePacket(self.getCurPacket())
-            Seq.outputPacket(packetNo=self.pCombo.get(), values=AdvSeq.packets[int(self.getCurPacket())])
+            Seq.outputPacket(packetNo=self.pCombo.get(), valuesLst=AdvSeq.packets[int(self.getCurPacket())])
 
     def saveLoopPacketButton(self):
         if self.getCurPacket() != '':
             self.updatePacket(self.getCurPacket())
-            Seq.loopPacket(packetNo=self.pCombo.get(), values=AdvSeq.packets[int(self.getCurPacket())])
+            Seq.loopPacket(packetNo=self.pCombo.get(), valuesLst=AdvSeq.packets[int(self.getCurPacket())])
 
     # =============================================================================
     def createSequenceTab(self, nb):
@@ -223,7 +223,7 @@ class NotebookDemo(Frame):
         self.sCombo = Combobox(self.sContainer, state='readonly', values=_objectLst, textvariable=sVar)
         self.sCombo.grid(row=0, column=1, padx=10)
         self.sCombo.bind('<<ComboboxSelected>>', lambda e, s=sVar: self.sComboCallback(s))
-        # Add sequence spinbox
+        # Add sequence spinboxes
         self.sSpinContainer = Labelframe(self.sContainer)
         self.sSpinContainer.grid(row=0, column=2, columnspan=10)
         for col in range(_sequenceLength):
@@ -408,10 +408,10 @@ class NotebookDemo(Frame):
     # def addNewSection(self):
 
     def sequenceSaveButton(self):
-        Seq.saveSequence(int(self.getCurSequence()), AdvSeq.sequences[int(self.getCurSequence())])
+        Seq.saveSequence(int(self.getCurSequence()))
 
     def sequenceOutputButton(self):
-        Seq.sendSequence(int(self.getCurSequence()), AdvSeq.sequences[int(self.getCurSequence())])
+        Seq.outputSequence(int(self.getCurSequence()))
 
 
 if __name__ == '__main__':
