@@ -198,12 +198,12 @@ class NotebookDemo(Frame):
     def saveOutputPacketButton(self):
         if self.getCurPacket() != '':
             self.updatePacket(self.getCurPacket())
-            Seq.sendPacket(packetNo=self.pCombo.get(), newValues=AdvSeq.packets[int(self.getCurPacket())])
+            Seq.outputPacket(packetNo=self.pCombo.get(), values=AdvSeq.packets[int(self.getCurPacket())])
 
     def saveLoopPacketButton(self):
         if self.getCurPacket() != '':
             self.updatePacket(self.getCurPacket())
-            Seq.sendPacketLoop(packetNo=self.pCombo.get(), newValues=AdvSeq.packets[int(self.getCurPacket())])
+            Seq.loopPacket(packetNo=self.pCombo.get(), values=AdvSeq.packets[int(self.getCurPacket())])
 
     # =============================================================================
     def createSequenceTab(self, nb):

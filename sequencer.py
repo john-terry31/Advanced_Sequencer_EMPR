@@ -5,17 +5,19 @@ comList = ["sendSequence", "sendSequenceSimple", "saveSequence", "savePacket", "
 separator = "."
 mbed = serial.Serial('/dev/ttyACM0', 9600)  # This is the linux port name
 conPattern = AdvSeq.getConPattern()
+_savePacketCode = 10
+_saveOutputPacketCode = 11
+_saveLoopPacketCode = 12
+_saveSequenceCode = 20
+_saveOutputSequenceCode = 21
 
 '''
 Type: Specifies command
-10 - Create packet
-20 - Edit packet
-30 - Create sequence
-40 - Edit sequence
-50 - Send sequence simple
-51 - Send sequence normal
-52 - Send sequence fade
-53 - Send sequence transition
+10 - Save packet
+11 - Send packet
+12 - Send packet loop
+20 - Save sequence
+21 - Output sequence
 
 Sequence type ideas: 
 Single packet cycle    ## DO INSIDE C FILE
@@ -147,24 +149,6 @@ def commandHelp(com):
     globals()[helpCommand]()
 
 
-def sendPacket(packetNo, newValues):
-    """
-    Edit individual packets. Up to 10 slots per, for simplicity.
-    Use '-' for leave unedited maybe?
-    :param packetNo:
-    :param newValues:
-    :return:
-    """
-
-    # Get packet
-    # Display current packet to user
-
-    packetStr = str(packetNo) + str(newValues)
-    return packetStr
-
-    # Needs to get packet first??
-
-
 def sendPacketLoop(packetNo, newValues):
     """
     Edit individual packets. Up to 10 slots per, for simplicity.
@@ -192,6 +176,13 @@ def getPacket(packetNo):
     # Get the packet from the packets array
 
 
+def makePacketArr(packetNo, values):
+    packetArr = [packetNo, separator]
+    for v in values:
+        packetArr.append(v)
+    return packetArr
+
+
 def savePacket(packetNo, values):
     """
     Overwrites the value in the current packet
@@ -200,15 +191,23 @@ def savePacket(packetNo, values):
     :return:
     """
 
-    packetStr = str(packetNo) + separator + str(values)
-    # Notify mbed of packetSave
-    # wait for response
-    sendSerial(packetStr)
+    packetArr = makePacketArr(packetNo, values)
+    sendMessage(_savePacketCode, packetArr)
+
+
+def outputPacket(packetNo, values):
+    packetArr = makePacketArr(packetNo, values)
+    sendMessage(_saveOutputPacketCode, packetArr)
 
 
 def savePacketHelp():
-    print("packetNo - ID (0-9) of new packet. If taken, will overwrite.\n"
-          "values:list - 10 slot values (0-255). If less given, will pad with 0s.")
+    print("packetNo - ID (0-9) of new packet. Will overwrite.\n"
+          "values:list - slot values (0-255)")
+
+
+def loopPacket(packetNo, values):
+    packetArr = makePacketArr(packetNo, values)
+    sendMessage(_saveLoopPacketCode, packetArr)
 
 
 def saveSequence(seqNo, sequenceData):
