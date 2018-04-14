@@ -53,7 +53,8 @@ def decodePackets(packetString):
         return
 
     for i, c in enumerate(packetString):
-        AdvSeq.packets[i//AdvSeq.getPacketLength()].append(c)
+        AdvSeq.setPacketSlot(pNo=i // AdvSeq.getPacketLength(), slot=i % AdvSeq.getPacketLength(), newVal=c)
+    AdvSeq.printPackets()
 
 
 def decodeSequences(seqString):
@@ -62,7 +63,7 @@ def decodeSequences(seqString):
     lastWasSeparator = False
     for c in seqString:
         if c == separator and not lastWasSeparator:
-            AdvSeq.sequences[sequence].append(section)
+            AdvSeq.appendSequenceSection(sNo=sequence, section=section)
             section += []
         elif c == separator and lastWasSeparator:
             sequence += 1
@@ -159,7 +160,7 @@ def loopPacket(packetNo, valuesLst):
 
 def makeSeqArr(seqNo):
     seqLength = AdvSeq.getSequenceLength()
-    seqLst = AdvSeq.sequences[seqNo]
+    seqLst = AdvSeq.getSequence(seqNo)
     # Add first subsection (main pattern and repeats)
     sequenceArr = [seqLst[0][0], seqLst[0][1], separator]
     # Append the main sequence

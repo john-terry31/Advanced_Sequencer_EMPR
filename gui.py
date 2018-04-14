@@ -180,30 +180,30 @@ class NotebookDemo(Frame):
         if not self.getCurPacket() == '':
             for obj in _objectLst:
                 self.pSpinArray[obj].delete(0, 3)
-                self.pSpinArray[obj].insert(0, AdvSeq.packets[int(self.getCurPacket())][obj])
+                self.pSpinArray[obj].insert(0, AdvSeq.getPacketSlot(int(self.getCurPacket()), obj))
 
     def getCurPacket(self):
         return self.pCombo.get()
 
     def updatePacket(self, pNo):
         for slot in range(_packetLength):
-            AdvSeq.packets[int(pNo)][slot] = self.pSpinArray[slot].get()
+            AdvSeq.setPacketSlot(int(pNo), slot, self.pSpinArray[slot].get())
         print("Changed")
 
     def saveButton(self):
         if self.getCurPacket() != '':
             self.updatePacket(self.getCurPacket())
-            Seq.savePacket(packetNo=self.getCurPacket(), valuesLst=AdvSeq.packets[int(self.getCurPacket())])
+            Seq.savePacket(packetNo=self.getCurPacket(), valuesLst=AdvSeq.getPacket(int(self.getCurPacket())))
 
     def saveOutputPacketButton(self):
         if self.getCurPacket() != '':
             self.updatePacket(self.getCurPacket())
-            Seq.outputPacket(packetNo=self.pCombo.get(), valuesLst=AdvSeq.packets[int(self.getCurPacket())])
+            Seq.outputPacket(packetNo=self.pCombo.get(), valuesLst=AdvSeq.getPacket(int(self.getCurPacket())))
 
     def saveLoopPacketButton(self):
         if self.getCurPacket() != '':
             self.updatePacket(self.getCurPacket())
-            Seq.loopPacket(packetNo=self.pCombo.get(), valuesLst=AdvSeq.packets[int(self.getCurPacket())])
+            Seq.loopPacket(packetNo=self.pCombo.get(), valuesLst=AdvSeq.getPacket(int(self.getCurPacket())))
 
     # =============================================================================
     def createSequenceTab(self, nb):
@@ -264,23 +264,28 @@ class NotebookDemo(Frame):
         if self.getCurSequence() != '':
             for obj in range(_sequenceLength):
                 self.sSpinArray[obj].delete(0, 3)
-                self.sSpinArray[obj].insert(0, AdvSeq.sequences[int(self.getCurSequence())][1][obj])
+                self.sSpinArray[obj].insert(0, AdvSeq.getSeqEntry(sNo=int(self.getCurSequence()),
+                                                                  sectionNo=1, objNo=obj))
             self.sRepInput.delete(0, 3)
-            self.sRepInput.insert(0, AdvSeq.sequences[int(self.getCurSequence())][0][1])
-            self.sPatCombo.set(_patternLst[AdvSeq.sequences[int(self.getCurSequence())][0][0]])
+            self.sRepInput.insert(0, AdvSeq.getSeqEntry(sNo=int(self.getCurSequence()), sectionNo=0, objNo=1))
+            self.sPatCombo.set(_patternLst[AdvSeq.getSeqEntry(sNo=int(self.getCurSequence()), sectionNo=0, objNo=0)])
 
             self.clearSectionFrame()
             self.createBlankSection()
-            if len(AdvSeq.sequences[int(self.getCurSequence())]) > 2:
-                for section in range(len(AdvSeq.sequences[int(self.getCurSequence())])-2):
+            if len(AdvSeq.getSequence(int(self.getCurSequence()))) > 2:
+                for section in range(len(AdvSeq.getSequence(int(self.getCurSequence())))-2):
                     section += 2
                     self.sSectionArray[-5].delete(0, 3)
-                    self.sSectionArray[-5].insert(0, AdvSeq.sequences[int(self.getCurSequence())][section][0])
+                    self.sSectionArray[-5].insert(0, AdvSeq.getSeqEntry(sNo=int(self.getCurSequence()),
+                                                                        sectionNo=section, objNo=0))
                     self.sSectionArray[-4].delete(0, 3)
-                    self.sSectionArray[-4].insert(0, AdvSeq.sequences[int(self.getCurSequence())][section][1])
+                    self.sSectionArray[-4].insert(0, AdvSeq.getSeqEntry(sNo=int(self.getCurSequence()),
+                                                                        sectionNo=section, objNo=1))
                     self.sSectionArray[-3].delete(0, 3)
-                    self.sSectionArray[-3].insert(0, AdvSeq.sequences[int(self.getCurSequence())][section][2])
-                    self.sSectionArray[-2].set(_patternLst[AdvSeq.sequences[int(self.getCurSequence())][section][3]])
+                    self.sSectionArray[-3].insert(0, AdvSeq.getSeqEntry(sNo=int(self.getCurSequence()),
+                                                                        sectionNo=section, objNo=2))
+                    self.sSectionArray[-2].set(_patternLst[AdvSeq.getSeqEntry(sNo=int(self.getCurSequence()),
+                                                                              sectionNo=section, objNo=3)])
                 self.addSectionButton()
             # #Add sections if present
 
@@ -345,7 +350,7 @@ class NotebookDemo(Frame):
                           int(self.sSectionArray[-4].get()),  # End section
                           int(self.sSectionArray[-3].get()),  # Repeats
                           int(_patternLst.index(self.sSectionArray[-2].get()))]  # Pattern
-            AdvSeq.sequences[int(self.getCurSequence())].append(newSection)
+            AdvSeq.appendSequenceSection(sNo=int(self.getCurSequence()), section=newSection)
 
             for widget in range(2, 6):
                 self.sSectionArray[-widget].config(state='disabled')
@@ -388,7 +393,7 @@ class NotebookDemo(Frame):
             self.sSectionArray[(int(info['row']) * 5) + widget].grid_remove()
         self.reGrid(int(info['row']))
         del self.sSectionArray[(int(info['row']) * 5):(int(info['row']) * 5) + 5]
-        del AdvSeq.sequences[self.getCurSequence()][int(info['row'])+2]
+        AdvSeq.removeSection(sNo=self.getCurSequence(), sectionNo=int(info['row']) + 2)
 
     def reGrid(self, r):
         for widget in range(((len(self.sSectionArray)/5)-(r+1))*5):
