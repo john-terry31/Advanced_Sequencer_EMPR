@@ -18,7 +18,7 @@ class NotebookDemo(Frame):
         Frame.__init__(self, name=name)
         self.pack(expand=Y, fill=BOTH)
         self.master.title('Advanced Sequencer')
-        self.master.geometry('500x300')
+        self.master.geometry('500x330')
         self.isapp = isapp
 
         self.pSpinArray = []  # Holds the packet spinbox instances
@@ -47,9 +47,12 @@ class NotebookDemo(Frame):
         self.patBox = None
         self.addB = None
         self.removeB = None
-
         self.saveSeq = None
         self.outputSeq = None
+
+        self.helpFrame = None
+        self.helpMsg = None
+        self.helpLbl = None
         self._create_widgets()
 
     def _create_widgets(self):
@@ -74,6 +77,7 @@ class NotebookDemo(Frame):
         self._create_text_tab(nb)
         self.createPacketTab(nb)
         self.createSequenceTab(nb)
+        self.createHelpTab(nb)
 
     def _create_descrip_tab(self, nb):
         # frame to hold contentx
@@ -164,9 +168,9 @@ class NotebookDemo(Frame):
         butContainer.pack(side=TOP, fill=BOTH)
         saveB = Button(butContainer, text='Save', command=self.saveButton)
         saveB.grid(row=0, column=0, padx=20, pady=10)
-        outSingle = Button(butContainer, text='Save and output', command=self.saveOutputPacketButton)
+        outSingle = Button(butContainer, text='Save and Output', command=self.saveOutputPacketButton)
         outSingle.grid(row=0, column=1, padx=20, pady=10)
-        outLoop = Button(butContainer, text='Save and loop', command=self.saveLoopPacketButton)
+        outLoop = Button(butContainer, text='Save and Loop', command=self.saveLoopPacketButton)
         outLoop.grid(row=0, column=2, padx=20, pady=10)
         butContainer.rowconfigure(0, weight=1)
         butContainer.columnconfigure((0, 1, 2), weight=1, uniform=1)
@@ -213,7 +217,7 @@ class NotebookDemo(Frame):
         nb.add(self.sequenceFrame, text='Sequences', padding=2)
 
     def createSeqContainer(self, tab):
-        self.sContainer = Labelframe(tab)
+        self.sContainer = Labelframe(tab, text='Main sequence:')
         self.sContainer.pack(fill=X, side=TOP)
         self.sLabel = Label(self.sContainer, text='Sequence:')
         self.sLabel.grid(row=0, column=0)
@@ -286,7 +290,7 @@ class NotebookDemo(Frame):
         return self.sCombo.get()
 
     def createExtraSectionContainer(self, tab):
-        headerContainer = Labelframe(tab)
+        headerContainer = Labelframe(tab, text='Subsections:')
         headerContainer.pack(fill=X, side=TOP)
         startHeaderLbl = Label(headerContainer, text='Section Start')
         startHeaderLbl.grid(row=0, column=0, padx=5)
@@ -403,6 +407,8 @@ class NotebookDemo(Frame):
         self.saveSeq.grid(row=0, column=0, padx=50, pady=10)
         self.outputSeq = Button(butContainer, text='Save and Output', command=self.sequenceOutputButton)
         self.outputSeq.grid(row=0, column=1, padx=50, pady=10)
+        butContainer.rowconfigure(0, weight=1)
+        butContainer.columnconfigure((0, 1), weight=1, uniform=1)
     # def addNewSection(self):
 
     def sequenceSaveButton(self):
@@ -410,6 +416,37 @@ class NotebookDemo(Frame):
 
     def sequenceOutputButton(self):
         Seq.sendSequence(int(self.getCurSequence()), AdvSeq.sequences[int(self.getCurSequence())])
+
+    # =============================================================================
+
+    def createHelpTab(self, nb):
+        self.helpFrame = Frame(nb)
+
+        # TODO Add info to message etc
+        self.helpMsg = ["Packets:\n",
+                        "For packets, select the packet to edit using the drop-down menu.",
+                        "Then you can edit the packet values.\n\n",
+                        "When saving, there are 3 options.\n",
+                        "'Save' will simply update the packet in MBED memory without displaying it.\n",
+                        "'Save and Output' will save the packet and then display it via dmx.\n",
+                        "'Save and Loop' will save the packet, then output each slot one by one on the configured",
+                        " channel (default 0).\n\n\n",
+                        "Sequences:\n",
+                        "In the main sequence sections, select the desired values.",
+                        "Then add any desired subsections.\n\n",
+                        "When saving, there are 2 options.\n",
+                        "'Save' will update the sequence in MBED memory without displaying it.\n",
+                        "'Save and Output' will save the sequence and display it via dmx."]
+
+        self.helpLbl = Label(self.helpFrame, wraplength='4i', justify=LEFT, anchor=N,
+                             text=''.join(self.helpMsg))
+
+        # position and set resize behaviour
+        self.helpLbl.grid(row=0, column=0, columnspan=2, sticky='new', pady=5)
+        self.helpFrame.rowconfigure(1, weight=1)
+        self.helpFrame.columnconfigure((0, 1), weight=1, uniform=1)
+
+        nb.add(self.helpFrame, text='Help', padding=2)
 
 
 if __name__ == '__main__':
