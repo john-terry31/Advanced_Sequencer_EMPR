@@ -168,9 +168,11 @@ def makeSeqArr(seqNo):
         sequenceArr.append(seqLst[1][v])
 
     if len(seqLst) > 2:
-        for section in range(len(seqLst)-2): # Go through each extra section
+        # Go through each extra section
+        for section in range(len(seqLst)-2):
             sequenceArr.append(separator)
-            for sVal in range(4): # Subsections each have 4 values
+            # Subsections each have 4 values
+            for sVal in range(4):
                 sequenceArr.append(seqLst[section+2][sVal])
 
     return sequenceArr
