@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/empr-factored-potato.iml" filepath="$PROJECT_DIR$/.idea/empr-factored-potato.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/empr-refactored-potato-master.iml" filepath="$PROJECT_DIR$/.idea/empr-refactored-potato-master.iml" />
     </modules>
   </component>
 </project>

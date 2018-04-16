@@ -106,10 +106,35 @@ CMakeFiles/empr_refactored_potato_master.dir/generator/Generator.c.obj.provides:
 CMakeFiles/empr_refactored_potato_master.dir/generator/Generator.c.obj.provides.build: CMakeFiles/empr_refactored_potato_master.dir/generator/Generator.c.obj
 
 
+CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj: CMakeFiles/empr_refactored_potato_master.dir/flags.make
+CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj: CMakeFiles/empr_refactored_potato_master.dir/includes_C.rsp
+CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj: ../generator/vector.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\empr_refactored_potato_master.dir\generator\vector.c.obj   -c "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\vector.c"
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\vector.c" > CMakeFiles\empr_refactored_potato_master.dir\generator\vector.c.i
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\vector.c" -o CMakeFiles\empr_refactored_potato_master.dir\generator\vector.c.s
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.requires:
+
+.PHONY : CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.requires
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.provides: CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.requires
+	$(MAKE) -f CMakeFiles\empr_refactored_potato_master.dir\build.make CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.provides.build
+.PHONY : CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.provides
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.provides.build: CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj
+
+
 CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.obj: CMakeFiles/empr_refactored_potato_master.dir/flags.make
 CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.obj: CMakeFiles/empr_refactored_potato_master.dir/includes_C.rsp
 CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.obj: ../generator/JTsequencer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\empr_refactored_potato_master.dir\generator\JTsequencer.c.obj   -c "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\JTsequencer.c"
 
 CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.i: cmake_force
@@ -134,7 +159,7 @@ CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.obj.provide
 CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.obj: CMakeFiles/empr_refactored_potato_master.dir/flags.make
 CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.obj: CMakeFiles/empr_refactored_potato_master.dir/includes_C.rsp
 CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.obj: ../generator/keypad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\empr_refactored_potato_master.dir\generator\keypad.c.obj   -c "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\keypad.c"
 
 CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.i: cmake_force
@@ -159,7 +184,7 @@ CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.obj.provides.bui
 CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.obj: CMakeFiles/empr_refactored_potato_master.dir/flags.make
 CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.obj: CMakeFiles/empr_refactored_potato_master.dir/includes_C.rsp
 CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.obj: ../generator/lcd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\empr_refactored_potato_master.dir\generator\lcd.c.obj   -c "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\lcd.c"
 
 CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.i: cmake_force
@@ -184,7 +209,7 @@ CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.obj.provides.build:
 CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.obj: CMakeFiles/empr_refactored_potato_master.dir/flags.make
 CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.obj: CMakeFiles/empr_refactored_potato_master.dir/includes_C.rsp
 CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.obj: ../generator/leds.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\empr_refactored_potato_master.dir\generator\leds.c.obj   -c "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\leds.c"
 
 CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.i: cmake_force
@@ -209,7 +234,7 @@ CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.obj.provides.build
 CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj: CMakeFiles/empr_refactored_potato_master.dir/flags.make
 CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj: CMakeFiles/empr_refactored_potato_master.dir/includes_C.rsp
 CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj: ../generator/serial.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\empr_refactored_potato_master.dir\generator\serial.c.obj   -c "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\serial.c"
 
 CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.i: cmake_force
@@ -229,31 +254,6 @@ CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj.provides: CM
 .PHONY : CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj.provides
 
 CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj.provides.build: CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj
-
-
-CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj: CMakeFiles/empr_refactored_potato_master.dir/flags.make
-CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj: CMakeFiles/empr_refactored_potato_master.dir/includes_C.rsp
-CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj: ../generator/vector.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\empr_refactored_potato_master.dir\generator\vector.c.obj   -c "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\vector.c"
-
-CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\vector.c" > CMakeFiles\empr_refactored_potato_master.dir\generator\vector.c.i
-
-CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\vector.c" -o CMakeFiles\empr_refactored_potato_master.dir\generator\vector.c.s
-
-CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.requires:
-
-.PHONY : CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.requires
-
-CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.provides: CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.requires
-	$(MAKE) -f CMakeFiles\empr_refactored_potato_master.dir\build.make CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.provides.build
-.PHONY : CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.provides
-
-CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.provides.build: CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj
 
 
 CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP1/mp1.c.obj: CMakeFiles/empr_refactored_potato_master.dir/flags.make
@@ -956,16 +956,41 @@ CMakeFiles/empr_refactored_potato_master.dir/monitor/serial.c.obj.provides: CMak
 CMakeFiles/empr_refactored_potato_master.dir/monitor/serial.c.obj.provides.build: CMakeFiles/empr_refactored_potato_master.dir/monitor/serial.c.obj
 
 
+CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj: CMakeFiles/empr_refactored_potato_master.dir/flags.make
+CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj: CMakeFiles/empr_refactored_potato_master.dir/includes_C.rsp
+CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj: ../generator/sequences.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\empr_refactored_potato_master.dir\generator\sequences.c.obj   -c "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\sequences.c"
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\sequences.c" > CMakeFiles\empr_refactored_potato_master.dir\generator\sequences.c.i
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\generator\sequences.c" -o CMakeFiles\empr_refactored_potato_master.dir\generator\sequences.c.s
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj.requires:
+
+.PHONY : CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj.requires
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj.provides: CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj.requires
+	$(MAKE) -f CMakeFiles\empr_refactored_potato_master.dir\build.make CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj.provides.build
+.PHONY : CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj.provides
+
+CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj.provides.build: CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj
+
+
 # Object files for target empr_refactored_potato_master
 empr_refactored_potato_master_OBJECTS = \
 "CMakeFiles/empr_refactored_potato_master.dir/generator/EMPR.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/generator/Generator.c.obj" \
+"CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj" \
-"CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP1/mp1.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP1/serial.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP2/mp2.c.obj" \
@@ -993,19 +1018,20 @@ empr_refactored_potato_master_OBJECTS = \
 "CMakeFiles/empr_refactored_potato_master.dir/monitor/lcd.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/monitor/leds.c.obj" \
 "CMakeFiles/empr_refactored_potato_master.dir/monitor/monitor.c.obj" \
-"CMakeFiles/empr_refactored_potato_master.dir/monitor/serial.c.obj"
+"CMakeFiles/empr_refactored_potato_master.dir/monitor/serial.c.obj" \
+"CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj"
 
 # External object files for target empr_refactored_potato_master
 empr_refactored_potato_master_EXTERNAL_OBJECTS =
 
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/EMPR.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/Generator.c.obj
+empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj
-empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP1/mp1.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP1/serial.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP2/mp2.c.obj
@@ -1034,11 +1060,12 @@ empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/monitor/leds.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/monitor/monitor.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/monitor/serial.c.obj
+empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/build.make
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/linklibs.rsp
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/objects1.rsp
 empr_refactored_potato_master.exe: CMakeFiles/empr_refactored_potato_master.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_37) "Linking C executable empr_refactored_potato_master.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\John\Documents\UNI Year 2\EMPR\Advanced_Sequencer_EMPR\empr-refactored-potato-master\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_38) "Linking C executable empr_refactored_potato_master.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\empr_refactored_potato_master.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1048,12 +1075,12 @@ CMakeFiles/empr_refactored_potato_master.dir/build: empr_refactored_potato_maste
 
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/EMPR.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/Generator.c.obj.requires
+CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/JTsequencer.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/keypad.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/lcd.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/serial.c.obj.requires
-CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/vector.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP1/mp1.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP1/serial.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/Mini_Projects/MP2/mp2.c.obj.requires
@@ -1082,6 +1109,7 @@ CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactore
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/monitor/leds.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/monitor/monitor.c.obj.requires
 CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/monitor/serial.c.obj.requires
+CMakeFiles/empr_refactored_potato_master.dir/requires: CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj.requires
 
 .PHONY : CMakeFiles/empr_refactored_potato_master.dir/requires
 

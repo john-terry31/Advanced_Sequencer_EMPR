@@ -237,6 +237,12 @@
 		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/leds.h">
 			<Option target="empr_refactored_potato_master"/>
 		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/sequences.c">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
+		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/sequences.h">
+			<Option target="empr_refactored_potato_master"/>
+		</Unit>
 		<Unit filename="C:/Users/John/Documents/UNI Year 2/EMPR/Advanced_Sequencer_EMPR/empr-refactored-potato-master/generator/serial.c">
 			<Option target="empr_refactored_potato_master"/>
 		</Unit>

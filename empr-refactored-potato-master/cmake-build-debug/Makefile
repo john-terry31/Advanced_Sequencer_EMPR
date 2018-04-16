@@ -878,6 +878,33 @@ generator/leds.c.s:
 	$(MAKE) -f CMakeFiles\empr_refactored_potato_master.dir\build.make CMakeFiles/empr_refactored_potato_master.dir/generator/leds.c.s
 .PHONY : generator/leds.c.s
 
+generator/sequences.obj: generator/sequences.c.obj
+
+.PHONY : generator/sequences.obj
+
+# target to build an object file
+generator/sequences.c.obj:
+	$(MAKE) -f CMakeFiles\empr_refactored_potato_master.dir\build.make CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.obj
+.PHONY : generator/sequences.c.obj
+
+generator/sequences.i: generator/sequences.c.i
+
+.PHONY : generator/sequences.i
+
+# target to preprocess a source file
+generator/sequences.c.i:
+	$(MAKE) -f CMakeFiles\empr_refactored_potato_master.dir\build.make CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.i
+.PHONY : generator/sequences.c.i
+
+generator/sequences.s: generator/sequences.c.s
+
+.PHONY : generator/sequences.s
+
+# target to generate assembly for a file
+generator/sequences.c.s:
+	$(MAKE) -f CMakeFiles\empr_refactored_potato_master.dir\build.make CMakeFiles/empr_refactored_potato_master.dir/generator/sequences.c.s
+.PHONY : generator/sequences.c.s
+
 generator/serial.obj: generator/serial.c.obj
 
 .PHONY : generator/serial.obj
@@ -1187,6 +1214,9 @@ help:
 	@echo ... generator/leds.obj
 	@echo ... generator/leds.i
 	@echo ... generator/leds.s
+	@echo ... generator/sequences.obj
+	@echo ... generator/sequences.i
+	@echo ... generator/sequences.s
 	@echo ... generator/serial.obj
 	@echo ... generator/serial.i
 	@echo ... generator/serial.s

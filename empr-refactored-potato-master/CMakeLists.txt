@@ -22,6 +22,8 @@ add_executable(empr_refactored_potato_master
         generator/EMPR.h
         generator/Generator.c
         generator/Generator.h
+        generator/vector.c
+        generator/vector.h
         generator/JTsequencer.c
         generator/JTsequencer.h
         generator/keypad.c
@@ -32,8 +34,6 @@ add_executable(empr_refactored_potato_master
         generator/leds.h
         generator/serial.c
         generator/serial.h
-        generator/vector.c
-        generator/vector.h
         "Mini Projects/MP1/mp1.c"
         "Mini Projects/MP1/serial.c"
         "Mini Projects/MP1/serial.h"
@@ -75,4 +75,4 @@ add_executable(empr_refactored_potato_master
         monitor/leds.h
         monitor/monitor.c
         monitor/serial.c
-        monitor/serial.h)
+        monitor/serial.h generator/sequences.c generator/sequences.h)

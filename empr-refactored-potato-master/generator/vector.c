@@ -4,16 +4,17 @@
 #include <stdlib.h>
 #include "vector.h"
 
-void vector_init(Vector *vector) {
-  // initialize size and capacity
-  vector->size = 0;
-  vector->capacity = VECTOR_INITIAL_CAPACITY;
 
-  // allocate memory for vector->data
-  vector->data = malloc(sizeof(int) * vector->capacity);
+void vector_init(Vector *vector) {
+    // initialize size and capacity
+    vector->size = 0;
+    vector->capacity = VECTOR_INITIAL_CAPACITY;
+
+    // allocate memory for vector->data
+    vector->data = malloc(sizeof(char) * vector->capacity);
 }
 
-void vector_append(Vector *vector, int value) {
+void vector_append(Vector *vector, char value) {
   // make sure there's room to expand into
   vector_double_capacity_if_full(vector);
 
@@ -29,7 +30,7 @@ int vector_get(Vector *vector, int index) {
   return vector->data[index];
 }
 
-void vector_set(Vector *vector, int index, int value) {
+void vector_set(Vector *vector, int index, char value) {
   // zero fill the vector up to the desired index
   while (index >= vector->size) {
     vector_append(vector, 0);
@@ -43,7 +44,7 @@ void vector_double_capacity_if_full(Vector *vector) {
   if (vector->size >= vector->capacity) {
     // double vector->capacity and resize the allocated memory accordingly
     vector->capacity *= 2;
-    vector->data = realloc(vector->data, sizeof(int) * vector->capacity);
+    vector->data = realloc(vector->data, sizeof(char) * vector->capacity);
   }
 }
 
@@ -51,7 +52,6 @@ void vector_free(Vector *vector) {
   free(vector->data);
 }
 
-void vector_get_size(Vector *vector){
+int vector_get_size(Vector *vector){
     return vector->size;
 }
-
