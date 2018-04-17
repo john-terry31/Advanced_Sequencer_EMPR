@@ -12,30 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de525b6a-66a2-4cde-aeeb-df0f5afb96ca" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/generator/sequences.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generator/sequences.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/objects1.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/empr_refactored_potato_master.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/empr_refactored_potato_master.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/empr_refactored_potato_master.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generator/JTsequencer.c" beforeDir="false" afterPath="$PROJECT_DIR$/generator/JTsequencer.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generator/JTsequencer.h" beforeDir="false" afterPath="$PROJECT_DIR$/generator/JTsequencer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/vector.c" beforeDir="false" afterPath="$PROJECT_DIR$/generator/vector.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator/vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/generator/vector.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
@@ -52,8 +31,8 @@
       <file leaf-file-name="JTsequencer.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/generator/JTsequencer.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="193" column="50" selection-start-line="193" selection-start-column="50" selection-end-line="193" selection-end-column="50" />
+            <state relative-caret-position="120">
+              <caret line="246" lean-forward="true" selection-start-line="246" selection-end-line="246" />
             </state>
           </provider>
         </entry>
@@ -61,8 +40,8 @@
       <file leaf-file-name="JTsequencer.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator/JTsequencer.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+            <state relative-caret-position="320">
+              <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -292,7 +271,7 @@
       <workItem from="1519723805398" duration="8134000" />
       <workItem from="1520336661298" duration="3944000" />
       <workItem from="1523634066645" duration="6907000" />
-      <workItem from="1523795584805" duration="24861000" />
+      <workItem from="1523795584805" duration="30082000" />
     </task>
     <task id="LOCAL-00001" summary="Import project to CLion">
       <created>1523634292083</created>
@@ -308,21 +287,29 @@
       <option name="project" value="LOCAL" />
       <updated>1523634978005</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Basic implementation of MBED code.">
+      <created>1523914178927</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523914178927</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107192000" />
+    <option name="totallyTimeSpent" value="112413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1373698" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1373698" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32963374" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50065106" side_tool="true" weight="0.32965517" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49934897" weight="0.32965517" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32827586" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49934897" visible="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
@@ -334,11 +321,36 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -349,7 +361,8 @@
     </ignored-roots>
     <MESSAGE value="Import project to CLion" />
     <MESSAGE value="Fixed import problems and updated to latest version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed import problems and updated to latest version" />
+    <MESSAGE value="Basic implementation of MBED code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic implementation of MBED code." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -693,15 +706,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generator/JTsequencer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        <state relative-caret-position="320">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/generator/JTsequencer.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="193" column="50" selection-start-line="193" selection-start-column="50" selection-end-line="193" selection-end-column="50" />
+        <state relative-caret-position="120">
+          <caret line="246" lean-forward="true" selection-start-line="246" selection-end-line="246" />
         </state>
       </provider>
     </entry>

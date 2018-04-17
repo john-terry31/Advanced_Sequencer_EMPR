@@ -113,19 +113,15 @@ void waitForInput(void)
             break;
         case 12:
             savePacket(data);
-            outputSingleLoop(packetArray[(int) data[0]]);
+            outputSingleLoop((int) packetArray[(int) data[0]]);
             break;
         case 20:
             saveSequenceSimple(data);
             break;
         case 21:
             saveSequenceSimple(data);
-            outputSequence((int) data[0]);
+            outputSequenceSimple((int) data[0]);
     }
-    // send confirmation
-    // read data
-    // store data
-    // output if required
 }
 
 uint8_t readSerialByte(void)
@@ -179,8 +175,8 @@ void outputSingleLoop(int pNo)
     int i;
     for (i=0; i<PACKET_LENGTH; i++)
     {
-        dmx_output_single(packetArray[pNo][i], packetArray[pNo][i+1], packetArray[pNo][i+2], IC_CHANNEL);
-        // needs wrap around thingy
+        dmx_output_single(packetArray[pNo][i%PACKET_LENGTH], packetArray[pNo][(i+1)%PACKET_LENGTH],
+                          packetArray[pNo][(i+2)%PACKET_LENGTH], IC_CHANNEL);
     }
 }
 
@@ -195,18 +191,23 @@ saveSequenceSimple(char * data)
     }
 }
 
-void saveSequence(int sNo, sections, data)
+//void saveSequence()
+//{
+//    // Save according to format
+//}
+
+void outputSequenceSimple(int sNo)
 {
-    // Save according to format
+    outputSection(sNo, 0, SEQUENCE_LENGTH-1, basicSequenceArray[sNo][0][0], basicSequenceArray[sNo][0][1]);
 }
 
-void outputSequence(int sNo)
-{
-    // Work out order of sections.
-    // for section in sequence:
-        outputSection(sNo, sectionStart, etc)
-    
-}
+//void outputSequence(int sNo)
+//{
+//    // Work out order of sections.
+//    // for section in sequence:
+//        //outputSection(sNo, sectionStart, etc)
+//
+//}
 
 int getSlot(int p, int slot)
 {
@@ -214,44 +215,45 @@ int getSlot(int p, int slot)
     return s;
 }
 
-void outputSection(int sNo, int sectionStart, int sectionEnd, int pattern, int repeats)
+void outputSection(int sNo, int sectionStartIndex, int sectionEndIndex, int pattern, int repeats)
 {
     int i, j;
     switch(pattern)
     {
         case 0:
-            Normal;
+            outputSNormal(sNo, sectionStartIndex, sectionEndIndex, repeats);
         case 1:
             for (i=0; i<= repeats; i++)
             {
-                for (j=0; j<=abs(sectionStart-sectionEnd); j++)
+                for (j=0; j<=abs(sectionStartIndex-sectionEndIndex); j++)
                 {
-                    outputSFade();
-                    // Are we using this not the Eq version??
+                    outputSFade(basicSequenceArray[sNo][1][j%SEQUENCE_LENGTH],
+                                basicSequenceArray[sNo][1][(j+1)%SEQUENCE_LENGTH]);
+                    // Are we using this not the Eq version??gen
                 }
             }
         case 2:
             for (i=0; i<= repeats; i++)
             {
-                for (j=0; j<=abs(sectionStart-sectionEnd); j++)
+                for (j=0; j<=abs(sectionStartIndex-sectionEndIndex); j++)
                 {
-                    Gradual;
+                    //Gradual;
                 }
             }
         case 3:
-            Flashing;
+            //Flashing;
     }
 }
 
 
-void outputSNormal(int sNo, int sectionStart, int sectionEnd, int repeats)
+void outputSNormal(int sNo, int sectionStartIndex, int sectionEndIndex, int repeats)
 {
     int i, j, p;
     for (i=0; i<=repeats; i++)
     {
-        for (j=sectionStart; j<=sectionEnd; j++)
+        for (j=sectionStartIndex; j<=sectionEndIndex; j++)
         {
-            p = sequence[sNo][j];
+            p = (int) basicSequenceArray[sNo][1][j];
             outputPacket(packetArray[p]);
             // wait 1s
         }
