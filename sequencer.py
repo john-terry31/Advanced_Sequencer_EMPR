@@ -1,10 +1,11 @@
 import serial
+import struct
 import AdvancedSequencer as AdvSeq
 
 comList = ["sendSequence", "sendSequenceSimple", "saveSequence", "savePacket", "editPacket"]
 separator = "."
 mbed = serial.Serial('/dev/ttyACM0', 9600)  # This is the linux port name
-conPattern = AdvSeq.getConPattern()
+conPattern = [AdvSeq.getConPattern()]
 _savePacketCode = 10
 _saveOutputPacketCode = 11
 _saveLoopPacketCode = 12
@@ -37,9 +38,8 @@ def sendInitSignal():
 
     sendSerial(packetLen)
     packetData = mbed.read(packetLen)
-
+    sendSerial(conPattern)
     sequenceLen = mbed.read(1)
-
     sendSerial(sequenceLen)
     sequenceData = mbed.read(sequenceLen)
 
@@ -83,10 +83,11 @@ def startSequencer():
 
 
 def sendSerial(messageArray):
-    for byte in messageArray:
-        if isinstance(byte, str):
-            mbed.write(byte)
-        elif isinstance(byte, int):
+    for i in messageArray:
+        if isinstance(i, str):
+            mbed.write(i)
+        elif isinstance(i, int):
+            byte = struct.pack('>B', i)
             mbed.write(str(byte))
         else:
             print('Invalid type')
@@ -94,7 +95,7 @@ def sendSerial(messageArray):
 
 def sendMessage(messageType, stringArray):
     sendLength = len(stringArray)
-    lenTypeArray = [sendLength, separator, messageType]
+    lenTypeArray = [sendLength, messageType]
 
     # Send main info
     sendSerial(lenTypeArray)
@@ -140,7 +141,7 @@ def commandHelp(com):
 
 
 def makePacketArr(packetNo, valuesLst):
-    packetArr = [packetNo, separator]
+    packetArr = [packetNo]
     for v in valuesLst:
         packetArr.append(v)
     return packetArr
