@@ -295,7 +295,7 @@ void outputSFade(int p, int pNext)
                 temp[j] = i-1; // Need an else here??????????
             }
         }
-        outputPacket(temp)
+        outputPacket(temp);
     }
     // Increase
     for (i=0; i<=255; i++)
@@ -307,7 +307,7 @@ void outputSFade(int p, int pNext)
                 temp[j] = i+1; // Else again???????
             }
         }
-        outputPacket(temp)
+        outputPacket(temp);
     }
 }
 
