@@ -4,7 +4,7 @@ import AdvancedSequencer as AdvSeq
 
 comList = ["sendSequence", "sendSequenceSimple", "saveSequence", "savePacket", "editPacket"]
 separator = "."
-mbed = serial.Serial('/dev/ttyACM0', 9600)  # This is the linux port name
+mbed = serial.Serial('/dev/ttyACM0', 9600, timeout=2)  # This is the linux port name
 conPattern = [AdvSeq.getConPattern()]
 _savePacketCode = 10
 _saveOutputPacketCode = 11
@@ -31,13 +31,19 @@ Flashing gradual       ## Flash between off and the transition chunks
 
 def sendInitSignal():
     initSequenceArray = [AdvSeq.getInitPattern()]
-    sendSerial(initSequenceArray)
+    #sendSerial(initSequenceArray)
+    mbed.write('e')
+    print('Sent\n')
 
     # Wait for length of init data
-    packetLen = mbed.read(1)
+    print('Read')
+    packetLen = mbed.read(3)
+    print('PacketLen: ' + packetLen)
+    #print('UnpackLen: ' + struct.unpack("B", packetLen))
 
+    packetLen = chr(int(packetLen))
     sendSerial(packetLen)
-    packetData = mbed.read(packetLen)
+    packetData = mbed.read(ord(packetLen))
     sendSerial(conPattern)
     sequenceLen = mbed.read(1)
     sendSerial(sequenceLen)
@@ -84,13 +90,9 @@ def startSequencer():
 
 def sendSerial(messageArray):
     for i in messageArray:
-        if isinstance(i, str):
-            mbed.write(i)
-        elif isinstance(i, int):
-            byte = struct.pack('>B', i)
-            mbed.write(str(byte))
-        else:
-            print('Invalid type')
+        #byte = struct.pack(">B", i)
+        #print(byte)
+        mbed.write(str(i))
 
 
 def sendMessage(messageType, stringArray):
