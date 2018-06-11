@@ -2,7 +2,6 @@
 // Created by jt1268 on 06/03/18.
 //
 
-#include "JTsequencer.h"
 #include "LPC17xx.h"
 #include "lpc17xx_uart.h"
 #include "serial.h"
@@ -12,10 +11,13 @@
 #include "lpc_types.h"
 #include "Generator.h"
 #include "stdlib.h"
-#include "vector.h"
+//#include "vector.h"
 
 void advancedSequencer(void);
-uint8_t readSerialByte(void);
+char readSerialByte(void);
+int numDigits(int num);
+void sendNumAsChar(int num);
+void waitForInput(void);
 void fillSendPacketArray(void);
 void fillSendSequenceArray(void);
 void savePacket(const char * data);

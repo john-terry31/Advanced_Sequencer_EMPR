@@ -1,7 +1,12 @@
 //
 // Created by jt1268 on 06/03/18.
 //
-
+#include "lpc17xx_gpio.h"
+#include "lpc17xx_systick.h"
+#include "lpc17xx_i2c.h"
+#include "lpc_types.h"
+#include "lpc17xx_pinsel.h"
+#include "lpc17xx_timer.h"
 #include "stdint.h"
 #include "JTsequencer.h"
 #include "LPC17xx.h"
@@ -14,7 +19,8 @@
 #include "Generator.h"
 #include "stdlib.h"
 #include "vector.h"
-#include "sequences.h"
+#include "math.h"
+//#include "sequences.h"
 
 
 #define IC_CHANNEL 0
@@ -29,15 +35,15 @@
 // //////////////////////////////////////////////////////////////////////////////////////////////////////// //
 char packetArray[NO_OBJECTS][PACKET_LENGTH] = {
         {10,146,241,72,65,72,003,8,255,255},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {}
+        {10,146,241,72,65,72,003,8,255,255},
+        {10,146,241,72,65,72,003,8,255,255},
+        {10,146,241,72,65,72,003,8,255,255},
+        {10,146,241,72,65,72,003,8,255,255},
+        {10,146,241,72,65,72,003,8,255,255},
+        {10,146,241,72,65,72,003,8,255,255},
+        {10,146,241,72,65,72,003,8,255,255},
+        {10,146,241,72,65,72,003,8,255,255},
+        {10,146,241,72,65,72,003,8,255,255}
 };
 
 char sendPackets[NO_OBJECTS*PACKET_LENGTH];
@@ -62,24 +68,34 @@ int sendSequencesNext = 0;
 void advancedSequencer(void)
 {
     uint32_t len, idx;
-    uint8_t initReceived, buffer[10], returnVal;
+    uint8_t buffer[10], returnVal;
+    char initReceived[1];
     // Sequence sequences[NO_OBJECTS];
-    initReceived = readSerialByte();
-
-    if (initReceived == INIT_SIGNAL)
+    while (initReceived[0] != INIT_SIGNAL)
     {
-        fillSendPacketArray();
-        write_usb_serial_blocking((char *)sendPacketsNext, strlen((char *)sendPacketsNext));
-        returnVal = readSerialByte();
-        write_usb_serial_blocking(sendPackets, sendPacketsNext-1);
-        returnVal = readSerialByte();
-
-        fillSendSequenceArray();
-        write_usb_serial_blocking((char *)sendSequencesNext, strlen((char *)sendSequencesNext));
-        returnVal = readSerialByte();
-        write_usb_serial_blocking(sendSequences, sendSequencesNext-1);
-        returnVal = readSerialByte();
+        initReceived[0] = UART_ReceiveByte(LPC_UART0);
+        ledOn(2);
+        EMPR_LCD_DispStr(initReceived, 2);
     }
+
+    ledOn(1);
+    fillSendPacketArray();
+
+    char length[5];
+    //sendNumAsChar(numDigits(sendPacketsNext));
+    sprintf(length, "%i", sendPacketsNext);
+    EMPR_LCD_DispStr(length, 2);
+    write_usb_serial_blocking(length, strlen(length));
+    returnVal = readSerialByte();
+    write_usb_serial_blocking(sendPackets, sendPacketsNext);
+    returnVal = readSerialByte();
+
+    fillSendSequenceArray();
+    write_usb_serial_blocking((char *)sendSequencesNext, strlen((char *)sendSequencesNext));
+    returnVal = readSerialByte();
+    write_usb_serial_blocking(sendSequences, sendSequencesNext-1);
+    returnVal = readSerialByte();
+
 
     while (1)
     {
@@ -87,9 +103,22 @@ void advancedSequencer(void)
     }
 }
 
+void sendNumAsChar(int num)
+{
+    char string[4];
+    sprintf(string, "%i", num);
+    EMPR_LCD_DispStr(string, 2);
+    write_usb_serial_blocking((char *)num, strlen((char *)num));
+}
+
+int numDigits(int num)
+{
+    return (num == 0 ? 1 : (int)floor(log10(abs(num))) + 1);
+}
+
 void sendConfCode(void)
 {
-    write_usb_serial_blocking((char *)CONFIRMATION_CODE, strlen((char *)CONFIRMATION_CODE));
+    write_usb_serial_blocking((char *)CONFIRMATION_CODE, numDigits(CONFIRMATION_CODE));
 }
 
 void waitForInput(void)
@@ -124,9 +153,11 @@ void waitForInput(void)
     }
 }
 
-uint8_t readSerialByte(void)
+char readSerialByte(void)
 {
-    return UART_ReveiveByte((LPC_UART_TypeDef *)LPC_UART0);
+    int byte = 0;
+    byte = read_usb_serial_none_blocking(byte, 1);
+    return (char) byte;
 }
 
 void fillSendPacketArray(void)
@@ -240,7 +271,6 @@ void outputSection(int sNo, int sectionStartIndex, int sectionEndIndex, int patt
                     //Gradual;
                 }
             }
-        case 3:
             //Flashing;
     }
 }
@@ -263,11 +293,11 @@ void outputSNormal(int sNo, int sectionStartIndex, int sectionEndIndex, int repe
 void outputSGradual(int p, int pNext)
 {
     int i, j, k;
-    char temp[PACKET_LENGTH], differential[PACKET_LENGTH];
+    char temp[PACKET_LENGTH], diff[PACKET_LENGTH];
     outputPacket(packetArray[p]);
     for (i=0; i<PACKET_LENGTH; i++)
     {
-        differential[i] = (getSlot(p, i)-getSlot(pNext, i))/5; // Ignore warnings, will work as inputs are validated
+        diff[i] = (getSlot(p, i)-getSlot(pNext, i))/5; // Ignore warnings, will work as inputs are validated
     }
     for (j=0; j<=3; j++)
     {
